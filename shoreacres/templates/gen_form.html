@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+                            <header class="special">
+                                <span class="icon {{ icon }}"></span>
+                                <h2>{{ title }}</h2>
+                            </header>
+                                {% if form.non_field_errors %}
+                                {% for error in form.non_field_errors %}
+                                    {{ error }}</br>
+                                {% endfor %}</br>
+                                {% endif %}
+                                {% if title == 'login' %}
+                                    Not yet registered? <a href="/register/">Click Here</a> to get signed up!
+                                {% endif %}
+                                {% if title == 'register' %}
+                                    Already registered? <a href="/login/">Click Here</a> to log in.</br></br>
+                                    You are <strong>NOT</strong> included in the neighborhood directory by default. To include your information, visit the <strong>EDIT MY INFO</strong> link under the <strong>MEMBERS</strong> dropdown once logged in.
+                                {% endif %}
+                                {% if title == 'edit' %}
+                                    By electing to be included in the neighborhood directory, all information provided here will be included. If you enter data into this form, First Name, Last Name, and Email are required.
+                                {% endif %}
+                            </br></br>
+                            <div class="row">
+
+                                <form style="float:none;" method="POST">
+                                	{% csrf_token %}
+                                    {% for field in form %}
+                                    <div style="width:100%;">
+                                        {% for error in field.errors %}
+                                            <div class="6u 12u(mobile)" style="text-align:left;padding-bottom:2em;margin:auto;">{{ error|safe }}</div>
+                                        {% endfor %}
+                                        <div class="6u 12u(mobile)" style="margin:auto;padding-bottom:2em;" >
+                                            {{ field }}
+                                            <img src="{{ field.url }}">
+                                        </div>
+                                    </div>
+                                	{% endfor %}
+                                    {% if title == 'edit' %}
+                                    <div style="width:100%;">
+                                        <div class="6u 12u(mobile)" style="margin:auto;display:inline-block;" >
+                                            <label>Sign up for our email list?</label>   
+                                        </div>
+                                    </div>
+                                    <div style="width:100%;">
+                                        <div class="6u 12u(mobile)" style="margin:auto;display:inline-block;;padding-bottom:2em;" >
+                                            <input type="checkbox" name="email_list" id="email_list" {% if request.user.profile.email_list == True %} checked {% endif %}/>    
+                                        </div>
+                                    </div>
+                                    <div style="width:100%;">
+                                        <div class="6u 12u(mobile)" style="margin:auto;display:inline-block;" >
+                                            <label>Include your info in the neighborhood directory?</label>   
+                                        </div>
+                                    </div>
+                                    <div style="width:100%;">
+                                        <div class="6u 12u(mobile)" style="margin:auto;display:inline-block;;padding-bottom:2em;" >
+                                            <input type="checkbox" name="directory_visible" id="directory_visible" {% if request.user.profile.directory_visible == True %} checked {% endif %}/>    
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    <div class="12u">
+                                        <ul class="buttons">
+                                            <li><input type="submit" class="special" value="{{ btn }}" /></li>
+                                        </ul>
+                                    </div>
+                                </form>
+                            </div>
+{% endblock %}

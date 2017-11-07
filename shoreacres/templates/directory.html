@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+                            <header class="special">
+                                <span class="icon fa-{{ icon }}"></span>
+                                <h2>{{ title }}</h2>
+                            </header>
+                            <div class="row">
+                            {% for p in profiles %}
+                                <div class="3u 12u(narrower)" style="text-align:left;height:100%;">
+                                    <section>
+                                        {% if p.first_name and p.last_name %}
+                                            {{ p.first_name }} {{ p.last_name }}</br>
+                                        {% else %}
+                                            {% if p.last_name or p.first_name %}
+                                                {% if p.first_name %}
+                                                    {{ p.first_name }}</br>
+                                                {% else %}
+                                                    {{ p.last_name }}</br>
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endif %}
+                                        {% if p.email %}
+                                            <a href="mailto:{{ p.email }}">{{ p.email }}</a></br>
+                                        {% endif %}
+                                        {% if p.phone %}
+                                            {{ p.phone }}</br>
+                                        {% endif %}
+                                        {% if p.house_number and p.street %}
+                                            {{ p.house_number }} {{ p.street }}</br>
+                                        {% else %}
+                                            {% if p.street %}
+                                                {{ p.street }}</br>
+                                            {% endif %}
+                                        {% endif %}
+                                    </section>
+                                </div>
+                            {% if forloop.counter|divisibleby:4 %}
+                                </div>
+                                <div class="row">
+                            {% endif %}
+                            {% endfor %}
+                            </div>
+{% endblock %}

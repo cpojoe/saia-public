@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+              <header class="special">
+                  <span class="icon fa-calendar"></span>
+                  <h2>Pay Dues</h2>
+              </header>
+                {% if problems %}
+                  <h2>Uh Oh! There was a problem</h2>
+                  {% for problem in problems %}
+                    {{ problem|safe }}</br>
+                  {% endfor %}
+                {% endif %}
+
+              <div class="row">
+                <form action="/checkout/" method="POST" style="text-algin:center;">
+                  {% csrf_token %}
+                  <script
+                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="{{ stripe_key }}"
+                    data-image="/static/images/george.jpg"
+                    data-name="Shore Acres"
+                    data-description="Auto-pay Annually"
+                    data-amount="4665"
+                    data-label="Charge Me Annually">
+                  </script>
+                </form>
+
+              </div>
+{% endblock %}

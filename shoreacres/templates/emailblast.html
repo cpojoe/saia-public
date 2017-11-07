@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+              <header class="special">
+                  <span class="icon fa-bullhorn"></span>
+                  <h2>Email Blast</h2>
+              </header>
+              {% if emailnum %}
+                  There are currently {{ emailnum }} subscribers.</br></br>
+                  Please enter your email blast below:</br></br>NOTE: An unsubscribe link will be automatically included.</br></br>
+                    <form method='post'>
+                        {% csrf_token %}
+                        <div class="row 50%">
+                            <div class="6u 12u(mobile)" style="float:inherit; margin: auto;">
+                                <input type="text" id="subject" name="subject" placeholder="Subject" required/></input>
+                            </div>
+                        </div>
+                        <div class="row 50%">
+                            <div class="6u 12u(mobile)" style="float:inherit; margin: auto;">
+                                <textarea id="body" name="body" placeholder="Email Body" rows="8" required/></textarea>
+                            </div>
+                        </div>
+                        <div class="row 50%" style="padding-top: 20px;">
+                            <div class="12u">
+                                <ul class="buttons">
+                                    <li><input type="submit" class="special" value="Submit" /></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                {% else %}
+                <h2>Success!</h2>
+                {% endif %}
+
+{% endblock %}

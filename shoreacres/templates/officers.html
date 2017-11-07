@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+                            <header class="special">
+                                <span class="icon fa-institution"></span>
+                                <h2>Officers</h2>
+                            </header>
+                            <div class="row">
+                                <div class="3u 12u(narrower)" style="text-align:left;height:100%;">
+                                    <header>
+                                        President
+                                    </header>
+                                    <section>
+                                        {% if president.first_name and president.last_name %}
+                                            {{ president.first_name }} {{ president.last_name }}</br>
+                                        {% else %}
+                                            {% if president.first_name %}
+                                                {{ president.first_name }}</br>
+                                            {% endif %}
+                                            {% if president.last_name %}
+                                                {{ president.last_name }}</br>
+                                            {% endif %}
+                                        {% endif %}
+                                        {% if president.directory_visible %}
+                                            {% if president.email %}
+                                                <a href="mailto:{{ president.email }}">{{ president.email }}</a></br>
+                                            {% endif %}
+                                            {% if president.phone %}
+                                                {{ president.phone }}
+                                            {% endif %}
+                                            {% if president.house_number and president.street %}
+                                                {{ president.house_number }} {{ president.street }}
+                                            {% else %}
+                                                {% if president.street %}
+                                                    {{ president.street }}
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endif %}
+                                    </section>
+                                </div>
+                                <div class="3u 12u(narrower)" style="text-align:left;height:100%;">
+                                    <header>
+                                        Vice President
+                                    </header>
+                                    <section>
+                                        {% if vpresident.first_name and vpresident.last_name %}
+                                            {{ vpresident.first_name }} {{ vpresident.last_name }}</br>
+                                        {% else %}
+                                            {% if vpresident.first_name %}
+                                                {{ vpresident.first_name }}</br>
+                                            {% endif %}
+                                            {% if vpresident.last_name %}
+                                                {{ vpresident.last_name }}</br>
+                                            {% endif %}
+                                        {% endif %}
+                                        {% if vpresident.directory_visible %}
+                                            {% if vpresident.email %}
+                                                <a href="mailto:{{ vpresident.email }}">{{ vpresident.email }}</a></br>
+                                            {% endif %}
+                                            {% if vpresident.phone %}
+                                                {{ vpresident.phone }}
+                                            {% endif %}
+                                            {% if vpresident.house_number and vpresident.street %}
+                                                {{ vpresident.house_number }} {{ vpresident.street }}
+                                            {% else %}
+                                                {% if vpresident.street %}
+                                                    {{ vpresident.street }}
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endif %}
+                                    </section>
+                                </div>
+                                <div class="3u 12u(narrower)" style="text-align:left;height:100%;">
+                                    <header>
+                                        Secretary
+                                    </header>
+                                    <section>
+                                        {% if secretary.first_name and secretary.last_name %}
+                                            {{ secretary.first_name }} {{ secretary.last_name }}</br>
+                                        {% else %}
+                                            {% if secretary.first_name %}
+                                                {{ secretary.first_name }}</br>
+                                            {% endif %}
+                                            {% if secretary.last_name %}
+                                                {{ secretary.last_name }}</br>
+                                            {% endif %}
+                                        {% endif %}
+                                        {% if secretary.directory_visible %}
+                                            {% if secretary.email %}
+                                                <a href="mailto:{{ secretary.email }}">{{ secretary.email }}</a></br>
+                                            {% endif %}
+                                            {% if secretary.phone %}
+                                                {{ secretary.phone }}
+                                            {% endif %}
+                                            {% if secretary.house_number and secretary.street %}
+                                                {{ secretary.house_number }} {{ secretary.street }}
+                                            {% else %}
+                                                {% if secretary.street %}
+                                                    {{ secretary.street }}
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endif %}
+                                    </section>
+                                </div>
+                                <div class="3u 12u(narrower)" style="text-align:left;height:100%;">
+                                    <header>
+                                        Treasurer
+                                    </header>
+                                    <section>
+                                        {% if treasurer.first_name and treasurer.last_name %}
+                                            {{ treasurer.first_name }} {{ treasurer.last_name }}</br>
+                                        {% else %}
+                                            {% if treasurer.first_name %}
+                                                {{ treasurer.first_name }}</br>
+                                            {% endif %}
+                                            {% if treasurer.last_name %}
+                                                {{ treasurer.last_name }}</br>
+                                            {% endif %}
+                                        {% endif %}
+                                        {% if treasurer.directory_visible %}
+                                            {% if treasurer.email %}
+                                                <a href="mailto:{{ treasurer.email }}">{{ treasurer.email }}</a></br>
+                                            {% endif %}
+                                            {% if treasurer.phone %}
+                                                {{ treasurer.phone }}
+                                            {% endif %}
+                                            {% if treasurer.house_number and treasurer.street %}
+                                                {{ treasurer.house_number }} {{ treasurer.street }}
+                                            {% else %}
+                                                {% if treasurer.street %}
+                                                    {{ treasurer.street }}
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endif %}
+                                    </section>
+                                </div>
+                            </div>
+{% endblock %}

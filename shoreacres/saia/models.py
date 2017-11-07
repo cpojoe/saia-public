@@ -12,7 +12,7 @@ class EmailList(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=0)
-    img = models.ImageField(upload_to='static/uploads/%Y/%m/%d/', null=True, blank=True, default="/static/images/user.svg")
+    img = models.ImageField(upload_to='static/uploads/%Y/%m/%d/', null=True, blank=True, default="static/images/user.svg")
     first_name = models.CharField(max_length=256, null=False, blank=False, default='')
     last_name = models.CharField(max_length=256, null=False, blank=False, default='')
     email = models.EmailField(max_length=256, null=False, blank=False, default='')
@@ -27,7 +27,7 @@ class Profile(models.Model):
     is_secretary = models.BooleanField(default=False)
     is_treasurer = models.BooleanField(default=False)
     is_director = models.BooleanField(default=False)
-    stripe_customer_id = models.CharField(max_length=32, null=True)
+    stripe_customer_id = models.CharField(max_length=32, null=True, blank=True)
     payment_type = models.CharField(max_length=32, null=True, blank=True)
     next_due_date = models.DateTimeField(null=True, blank=True)
     boat_ramp = models.BooleanField(default=False, blank=True)

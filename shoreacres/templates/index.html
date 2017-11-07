@@ -31,11 +31,12 @@
 							<li class="submenu">
 								<a href="#">Community Info</a>
 								<ul>
+									<li><a href="/news/">Recent News</a></li>
 									<li><a href="/communityinfo/">Membership</a></li>
 									<li><a href="http://www.aacounty.org/departments/fire-department/">Anne Arundel Fire Dept.</a></li>
 									<li><a href="http://www.aacounty.org/departments/police-department/">Police</a></li>
 									<li><a href="https://www.aacps.org/Page/4148">Broadneck Elementary</a></li>
-									<li><a href="https://www.aacps.org/Page/3843">Magothy River Middle School</a></li>
+									<li><a href="https://www.aacps.org/Page/3843">Magothy River MS</a></li>
 									<li><a href="http://broadneck.org/">Broadneck High School</a></li>
 									<li><a href="https://www.redfin.com/city/21236/MD/Arnold/filter/sort=lo-distance,viewport=39.107164713085936:39.00416788691406:-76.39074024921875:-76.52806935078125,no-outline,geo-address=Shore+Acres%0C+Arnold%0C+MD">Real Estate</a></li>
 								</ul>
@@ -139,7 +140,7 @@
 								{% for n in news %}
 									<div class="3u 12u(narrower)">
 
-										<section>
+										<section class="news">
 											<header>
 												<h3>{{ n.date|date }}</h3>
 											</header>
@@ -151,8 +152,12 @@
 									</div>
 								{% endfor %}
 							</div>
+							<div class="major">
+								<ul class="buttons">
+									<li><a href="/news/" class="button">Older News</a></li>
+								</ul>
+							</div>
 						</section>
-
 					<!-- Three -->
 						<section class="wrapper style3 container special">
 
@@ -165,9 +170,10 @@
 									{% for event in events %}
 										<div class="{% widthratio 12 events|length 1 %}u 12u(narrower)">
 
-											<section>
-												<a href="#" class="image featured"><div class="img" style='background-image:url("{{ event.img }}");'></div></a>
+											<section class="events">
+												
 												<header>
+													<div class="img" style='background-image:url("{{ event.img }}");'></div>
 													<h3>{{ event.title }}</h3>
 													<h1>{{ event.date|date }} {{ event.date|time }}</h1>
 												</header>

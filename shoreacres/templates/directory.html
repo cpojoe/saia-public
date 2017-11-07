@@ -7,32 +7,43 @@
                             </header>
                             <div class="row">
                             {% for p in profiles %}
-                                <div class="3u 12u(narrower)" style="text-align:left;height:100%;">
-                                    <section>
-                                        {% if p.first_name and p.last_name %}
-                                            {{ p.first_name }} {{ p.last_name }}</br>
-                                        {% else %}
-                                            {% if p.last_name or p.first_name %}
-                                                {% if p.first_name %}
-                                                    {{ p.first_name }}</br>
-                                                {% else %}
-                                                    {{ p.last_name }}</br>
-                                                {% endif %}
+                                <div class="3u 12u(narrower)">
+                                    <section class="profile">
+                                        <div class="img" style="background-image: url('/{{ p.img }}');">
+                                        </div>
+                                        <ul class="dir_info">
+                                            {% if p.first_name and p.last_name %}
+                                            <li>
+                                                <span class="icon fa-user"></span>
+                                                    {{ p.first_name }} {{ p.last_name }}</br>
+                                            </li>
+                                            {% endif %}
+                                            {% if p.email %}
+                                            <li>
+                                                <span class="icon fa-envelope"></span>
+                                                <a href="mailto:{{ p.email }}">{{ p.email }}</a></br>
+                                            </li>
+                                            {% endif %}
+                                            {% if p.phone %}
+                                            <li>
+                                                <span class="icon fa-phone"></span>
+                                                {{ p.phone }}
+                                            </li>
+                                            {% endif %}
+                                            {% if p.house_number and p.street %}
+                                            <li>
+                                                <span class="icon fa-home"></span>
+                                                {{ p.house_number }} {{ p.street }}
+                                            </li>
+                                            {% else %}
+                                                {% if p.street %}
+                                                <li>
+                                                    <span class="icon fa-home"></span>
+                                                    {{ p.street }}
+                                                </li>
                                             {% endif %}
                                         {% endif %}
-                                        {% if p.email %}
-                                            <a href="mailto:{{ p.email }}">{{ p.email }}</a></br>
-                                        {% endif %}
-                                        {% if p.phone %}
-                                            {{ p.phone }}</br>
-                                        {% endif %}
-                                        {% if p.house_number and p.street %}
-                                            {{ p.house_number }} {{ p.street }}</br>
-                                        {% else %}
-                                            {% if p.street %}
-                                                {{ p.street }}</br>
-                                            {% endif %}
-                                        {% endif %}
+                                    </ul>
                                     </section>
                                 </div>
                             {% if forloop.counter|divisibleby:4 %}

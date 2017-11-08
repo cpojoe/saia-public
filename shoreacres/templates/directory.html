@@ -12,6 +12,36 @@
                                         <div class="img" style="background-image: url('/{{ p.img }}');">
                                         </div>
                                         <ul class="dir_info">
+                                            {% if p.is_president %}
+                                            <li>
+                                                <span class="icon fa-institution"></span>
+                                                    President</br>
+                                            </li>
+                                            {% endif %}
+                                            {% if p.is_vice_president %}
+                                            <li>
+                                                <span class="icon fa-institution"></span>
+                                                    Vice President</br>
+                                            </li>
+                                            {% endif %}
+                                            {% if p.is_secretary %}
+                                            <li>
+                                                <span class="icon fa-institution"></span>
+                                                    Secretray</br>
+                                            </li>
+                                            {% endif %}
+                                            {% if p.is_treasurer %}
+                                            <li>
+                                                <span class="icon fa-institution"></span>
+                                                    Treasurer</br>
+                                            </li>
+                                            {% endif %}
+                                            {% if p.is_director %}
+                                            <li>
+                                                <span class="icon fa-institution"></span>
+                                                    Board of Directors</br>
+                                            </li>
+                                            {% endif %}
                                             {% if p.first_name and p.last_name %}
                                             <li>
                                                 <span class="icon fa-user"></span>

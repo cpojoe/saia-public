@@ -6,132 +6,176 @@
                                 <h2>Officers</h2>
                             </header>
                             <div class="row">
-                                <div class="3u 12u(narrower)" style="text-align:left;height:100%;">
-                                    <header>
-                                        President
-                                    </header>
-                                    <section>
-                                        {% if president.first_name and president.last_name %}
-                                            {{ president.first_name }} {{ president.last_name }}</br>
-                                        {% else %}
-                                            {% if president.first_name %}
-                                                {{ president.first_name }}</br>
+                                <div class="3u 12u(narrower)">
+                                    <section class="profile">
+                                        <div class="img" style="background-image: url('/{{ president.img }}');">
+                                        </div>
+                                        <ul class="dir_info">
+                                            <li>
+                                                <span class="icon fa-institution"></span>
+                                                    President</br>
+                                            </li>
+                                            {% if president.first_name and president.last_name %}
+                                            <li>
+                                                <span class="icon fa-user"></span>
+                                                    {{ president.first_name }} {{ president.last_name }}</br>
+                                            </li>
                                             {% endif %}
-                                            {% if president.last_name %}
-                                                {{ president.last_name }}</br>
-                                            {% endif %}
-                                        {% endif %}
-                                        {% if president.directory_visible %}
                                             {% if president.email %}
+                                            <li>
+                                                <span class="icon fa-envelope"></span>
                                                 <a href="mailto:{{ president.email }}">{{ president.email }}</a></br>
+                                            </li>
                                             {% endif %}
                                             {% if president.phone %}
+                                            <li>
+                                                <span class="icon fa-phone"></span>
                                                 {{ president.phone }}
+                                            </li>
                                             {% endif %}
                                             {% if president.house_number and president.street %}
+                                            <li>
+                                                <span class="icon fa-home"></span>
                                                 {{ president.house_number }} {{ president.street }}
+                                            </li>
                                             {% else %}
                                                 {% if president.street %}
+                                                <li>
+                                                    <span class="icon fa-home"></span>
                                                     {{ president.street }}
-                                                {% endif %}
+                                                </li>
                                             {% endif %}
                                         {% endif %}
+                                    </ul>
                                     </section>
                                 </div>
-                                <div class="3u 12u(narrower)" style="text-align:left;height:100%;">
-                                    <header>
-                                        Vice President
-                                    </header>
-                                    <section>
-                                        {% if vpresident.first_name and vpresident.last_name %}
-                                            {{ vpresident.first_name }} {{ vpresident.last_name }}</br>
-                                        {% else %}
-                                            {% if vpresident.first_name %}
-                                                {{ vpresident.first_name }}</br>
+                                <div class="3u 12u(narrower)">
+                                    <section class="profile">
+                                        <div class="img" style="background-image: url('/{{ vpresident.img }}');">
+                                        </div>
+                                        <ul class="dir_info">
+                                            <li>
+                                                <span class="icon fa-institution"></span>
+                                                    Vice President</br>
+                                            </li>
+                                            {% if vpresident.first_name and vpresident.last_name %}
+                                            <li>
+                                                <span class="icon fa-user"></span>
+                                                    {{ vpresident.first_name }} {{ vpresident.last_name }}</br>
+                                            </li>
                                             {% endif %}
-                                            {% if vpresident.last_name %}
-                                                {{ vpresident.last_name }}</br>
-                                            {% endif %}
-                                        {% endif %}
-                                        {% if vpresident.directory_visible %}
                                             {% if vpresident.email %}
+                                            <li>
+                                                <span class="icon fa-envelope"></span>
                                                 <a href="mailto:{{ vpresident.email }}">{{ vpresident.email }}</a></br>
+                                            </li>
                                             {% endif %}
                                             {% if vpresident.phone %}
+                                            <li>
+                                                <span class="icon fa-phone"></span>
                                                 {{ vpresident.phone }}
+                                            </li>
                                             {% endif %}
                                             {% if vpresident.house_number and vpresident.street %}
+                                            <li>
+                                                <span class="icon fa-home"></span>
                                                 {{ vpresident.house_number }} {{ vpresident.street }}
+                                            </li>
                                             {% else %}
                                                 {% if vpresident.street %}
+                                                <li>
+                                                    <span class="icon fa-home"></span>
                                                     {{ vpresident.street }}
-                                                {% endif %}
+                                                </li>
                                             {% endif %}
                                         {% endif %}
+                                    </ul>
                                     </section>
                                 </div>
-                                <div class="3u 12u(narrower)" style="text-align:left;height:100%;">
-                                    <header>
-                                        Secretary
-                                    </header>
-                                    <section>
-                                        {% if secretary.first_name and secretary.last_name %}
-                                            {{ secretary.first_name }} {{ secretary.last_name }}</br>
-                                        {% else %}
-                                            {% if secretary.first_name %}
-                                                {{ secretary.first_name }}</br>
+                                 <div class="3u 12u(narrower)">
+                                    <section class="profile">
+                                        <div class="img" style="background-image: url('/{{ secretary.img }}');">
+                                        </div>
+                                        <ul class="dir_info">
+                                            <li>
+                                                <span class="icon fa-institution"></span>
+                                                    Secretary</br>
+                                            </li>
+                                            {% if secretary.first_name and secretary.last_name %}
+                                            <li>
+                                                <span class="icon fa-user"></span>
+                                                    {{ secretary.first_name }} {{ secretary.last_name }}</br>
+                                            </li>
                                             {% endif %}
-                                            {% if secretary.last_name %}
-                                                {{ secretary.last_name }}</br>
-                                            {% endif %}
-                                        {% endif %}
-                                        {% if secretary.directory_visible %}
                                             {% if secretary.email %}
+                                            <li>
+                                                <span class="icon fa-envelope"></span>
                                                 <a href="mailto:{{ secretary.email }}">{{ secretary.email }}</a></br>
+                                            </li>
                                             {% endif %}
                                             {% if secretary.phone %}
+                                            <li>
+                                                <span class="icon fa-phone"></span>
                                                 {{ secretary.phone }}
+                                            </li>
                                             {% endif %}
                                             {% if secretary.house_number and secretary.street %}
+                                            <li>
+                                                <span class="icon fa-home"></span>
                                                 {{ secretary.house_number }} {{ secretary.street }}
+                                            </li>
                                             {% else %}
                                                 {% if secretary.street %}
+                                                <li>
+                                                    <span class="icon fa-home"></span>
                                                     {{ secretary.street }}
-                                                {% endif %}
+                                                </li>
                                             {% endif %}
                                         {% endif %}
+                                    </ul>
                                     </section>
                                 </div>
-                                <div class="3u 12u(narrower)" style="text-align:left;height:100%;">
-                                    <header>
-                                        Treasurer
-                                    </header>
-                                    <section>
-                                        {% if treasurer.first_name and treasurer.last_name %}
-                                            {{ treasurer.first_name }} {{ treasurer.last_name }}</br>
-                                        {% else %}
-                                            {% if treasurer.first_name %}
-                                                {{ treasurer.first_name }}</br>
+                                 <div class="3u 12u(narrower)">
+                                    <section class="profile">
+                                        <div class="img" style="background-image: url('/{{ treasurer.img }}');">
+                                        </div>
+                                        <ul class="dir_info">
+                                            <li>
+                                                <span class="icon fa-institution"></span>
+                                                    Treasurer</br>
+                                            </li>
+                                            {% if treasurer.first_name and treasurer.last_name %}
+                                            <li>
+                                                <span class="icon fa-user"></span>
+                                                    {{ treasurer.first_name }} {{ treasurer.last_name }}</br>
+                                            </li>
                                             {% endif %}
-                                            {% if treasurer.last_name %}
-                                                {{ treasurer.last_name }}</br>
-                                            {% endif %}
-                                        {% endif %}
-                                        {% if treasurer.directory_visible %}
                                             {% if treasurer.email %}
+                                            <li>
+                                                <span class="icon fa-envelope"></span>
                                                 <a href="mailto:{{ treasurer.email }}">{{ treasurer.email }}</a></br>
+                                            </li>
                                             {% endif %}
                                             {% if treasurer.phone %}
+                                            <li>
+                                                <span class="icon fa-phone"></span>
                                                 {{ treasurer.phone }}
+                                            </li>
                                             {% endif %}
                                             {% if treasurer.house_number and treasurer.street %}
+                                            <li>
+                                                <span class="icon fa-home"></span>
                                                 {{ treasurer.house_number }} {{ treasurer.street }}
+                                            </li>
                                             {% else %}
                                                 {% if treasurer.street %}
+                                                <li>
+                                                    <span class="icon fa-home"></span>
                                                     {{ treasurer.street }}
-                                                {% endif %}
+                                                </li>
                                             {% endif %}
                                         {% endif %}
+                                    </ul>
                                     </section>
                                 </div>
                             </div>

@@ -44,5 +44,6 @@ urlpatterns = [
     url(r'^addnews/$', saia_views.addnews, name='addnews'),
     url(r'^editpositions/$', saia_views.edit_positions, name='editpositions'),
     url(r'^emailblast/$', saia_views.emailblast, name='emailblast'),
-    url(r'^submitevent/$', saia_views.submitevent, name='submitevent')
+    url(r'^submitevent/$', saia_views.submitevent, name='submitevent'),
+    url(r'^classifieds/$', saia_views.classifieds, name='classifieds')
 ]

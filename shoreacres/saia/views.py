@@ -5,7 +5,7 @@ from django.contrib.auth import logout, authenticate, login
 from .forms import UserCreationForm, AuthForm, ProfileForm, EmailListForm
 from django.shortcuts import render, redirect, reverse
 from django.utils import timezone
-from saia.models import News, Events, Profile, EmailList, News
+from saia.models import News, Events, Profile, EmailList, News, Classified
 from django.contrib.auth.decorators import login_required
 from shoreacres import settings
 import stripe
@@ -437,3 +437,11 @@ def submitevent(request):
     else:
         return render(request, '/')
 
+
+@login_required
+def classifieds(request):
+    c = Classified.objects.all().order_by('-date')
+    context = {
+        'classifieds': c,
+    }
+    return render(request, 'classifieds.html', context)

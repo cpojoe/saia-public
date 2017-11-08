@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load tags %}
 {% block content %}
                             <header class="special">
                                 <span class="icon fa-{{ icon }}"></span>
                                 <h2>{{ title }}</h2>
                             </header>
+                            <p>
+                            {{ profiles|get_nav_links|safe }}
+                            </p>
                             <div class="row">
                             {% for p in profiles %}
+                                <article id='{{ p.last_name.0 }}' style="width:0px;height:0px;padding:0px;"></article>
                                 <div class="3u 12u(narrower)">
                                     <section class="profile">
                                         <div class="img" style="background-image: url('/{{ p.img }}');">

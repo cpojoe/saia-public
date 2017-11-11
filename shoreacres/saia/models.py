@@ -38,13 +38,17 @@ class Profile(models.Model):
 
 
 class Classified(models.Model):
-    poster = models.ForeignKey('Profile', on_delete=models.DO_NOTHING)
+    poster = models.ForeignKey('Profile', on_delete=models.DO_NOTHING, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
-    img1 = models.ImageField(upload_to='static/uploads/%Y/%m/%d/', null=True, blank=True, default="static/images/classified.jpg")
+    img1 = models.ImageField(upload_to='static/uploads/%Y/%m/%d/', null=True, blank=True)
     img2 = models.ImageField(upload_to='static/uploads/%Y/%m/%d/', null=True, blank=True)
     img3 = models.ImageField(upload_to='static/uploads/%Y/%m/%d/', null=True, blank=True)
     title = models.CharField(max_length=64, blank=False, null=False)
     description = models.CharField(max_length=4096, blank=False, null=False)
+    visible = models.BooleanField(default=True)
+
+    def __str__(self):
+        return u'%s' % self.title
 
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):

@@ -2,24 +2,31 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.forms.widgets import PasswordInput, TextInput
-from .models import Profile
+from .models import Profile, Classified
 import re
 from django.utils.html import escape, conditional_escape
 from django.utils.encoding import force_unicode
 from django.utils.safestring import mark_safe
 from django.forms.widgets import ClearableFileInput, CheckboxInput
+from django.forms.widgets import FileInput
+
+
+class ClassifiedForm(forms.ModelForm):
+    class Meta:
+        model = Classified
+        fields = ("title", "description", "img1", "img2", "img3")
 
 
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ("first_name", "last_name", "email", "house_number", "street", "phone",)
+        fields = ("first_name", "last_name", "email", "house_number", "street", "phone", "img")
 
     def __init__(self, *args, **kwargs):
         super(ProfileForm, self).__init__(*args, **kwargs)
-        self.fields['first_name'].widget.attrs['placeholder'] = 'First Name'
-        self.fields['last_name'].widget.attrs['placeholder'] = 'Last Name'
-        self.fields['email'].widget.attrs['placeholder'] = 'Email'
+        self.fields['first_name'].widget.attrs['placeholder'] = 'First Name (Required)'
+        self.fields['last_name'].widget.attrs['placeholder'] = 'Last Name (Required)'
+        self.fields['email'].widget.attrs['placeholder'] = 'Email (Required)'
         self.fields['house_number'].widget.attrs['placeholder'] = 'House Number'
         self.fields['street'].widget.attrs['placeholder'] = 'Street'
         self.fields['phone'].widget.attrs['placeholder'] = 'Phone Number'
@@ -41,6 +48,7 @@ class ProfileForm(forms.ModelForm):
             phone = '(' + phone[:3] + ')' + ' ' + phone[3:6] + '-' + phone[6:10]
         return phone
 
+
     def save(self, commit=True):
         p = super(ProfileForm, self).save(commit=False)
         if self.cleaned_data['first_name']:
@@ -50,6 +58,7 @@ class ProfileForm(forms.ModelForm):
         if self.cleaned_data['street']:
             p.street = self.cleaned_data['street'].title()
         p.email = self.cleaned_data["email"]
+        print self.cleaned_data['img']
         if commit:
             p.save()
         return p
@@ -67,7 +76,6 @@ class UserCreationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ("username", "password1", "password2")
-
 
     def __init__(self, *args, **kwargs):
         super(UserCreationForm, self).__init__(*args, **kwargs)

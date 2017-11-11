@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.contrib.auth import logout, authenticate, login
-from .forms import UserCreationForm, AuthForm, ProfileForm, EmailListForm
+from .forms import UserCreationForm, AuthForm, ProfileForm, EmailListForm, ClassifiedForm
 from django.shortcuts import render, redirect, reverse
 from django.utils import timezone
 from saia.models import News, Events, Profile, EmailList, News, Classified
@@ -11,6 +11,7 @@ from shoreacres import settings
 import stripe
 import json
 from django.core.mail import EmailMultiAlternatives
+import datetime
 
 def communityinfo(request):
     return render(request, 'community_info.html')
@@ -50,7 +51,10 @@ def directory(request):
 @login_required
 def edit_profile(request):
     if request.method == 'POST':
-        form = ProfileForm(data=request.POST, instance=request.user.profile)
+        if 'ignore_file' not in request.POST:
+            form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        else:
+            form = ProfileForm(request.POST, instance=request.user.profile)
         if form.is_valid():
             p = form.save()
 
@@ -74,6 +78,8 @@ def edit_profile(request):
                 p.email_list = False
             p.save()
             return render(request, "profile_success.html")
+        else:
+            print form.errors
 
     form = ProfileForm(instance=request.user.profile)
     context = {
@@ -440,8 +446,57 @@ def submitevent(request):
 
 @login_required
 def classifieds(request):
-    c = Classified.objects.all().order_by('-date')
+    classifieds = Classified.objects.filter(visible=True).order_by('-date')
+    for c in classifieds:
+        if c.date < (timezone.now() - datetime.timedelta(days=30)):
+            c.visible = False
+            c.save()
+    classifieds = Classified.objects.filter(visible=True).order_by('-date')
     context = {
-        'classifieds': c,
+        'classifieds': classifieds,
     }
     return render(request, 'classifieds.html', context)
+
+
+@login_required
+def postclassified(request):
+    if request.method == 'POST':
+        print request.POST
+        print request.FILES
+        if request.FILES:
+            form = ClassifiedForm(request.POST, request.FILES)
+        else:
+            form = ClassifiedForm(data=request.POST)
+        if form.is_valid():
+            c = form.save()
+            c.poster = request.user.profile
+            c.save()
+        else:
+            print form.errors
+            context = {
+                'errors': form.errors,
+            }
+            return render(request, 'post_classified.html', context)
+        return render(request, 'thanks_classifieds.html')
+    return render(request, 'post_classified.html')
+
+
+@login_required
+def view_classified(request, id):
+    classifieds = Classified.objects.filter(visible=True).order_by('-date')
+    for c in classifieds:
+        if c.date < (timezone.now() - datetime.timedelta(days=30)):
+            c.visible = False
+            c.save()
+    try:
+        c = Classified.objects.filter(visible=True).get(id=id)
+    except:
+        problem = 'That classified doesn\'t exist.'
+        context = {
+            'problems' : problem,
+        }
+        return render(request, 'uhoh.html', context)
+    context = {
+        'c': c,
+    }
+    return render(request,'classified.html',context)

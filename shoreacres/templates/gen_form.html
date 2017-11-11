@@ -23,9 +23,10 @@
                             </br></br>
                             <div class="row">
 
-                                <form style="float:none;" method="POST">
+                                <form style="float:none;" method="POST" enctype="multipart/form-data">
                                 	{% csrf_token %}
                                     {% for field in form %}
+                                    {% if field.name != "img" %}
                                     <div style="width:100%;">
                                         {% for error in field.errors %}
                                             <div class="6u 12u(mobile)" style="text-align:left;padding-bottom:2em;margin:auto;">{{ error|safe }}</div>
@@ -35,28 +36,61 @@
                                             <img src="{{ field.url }}">
                                         </div>
                                     </div>
+                                    {% endif %}
                                 	{% endfor %}
                                     {% if title == 'edit' %}
+                                    <script>
+                                        function readURL(input) {
+                                                    if (input.files && input.files[0]) {
+                                                        var reader = new FileReader();
+
+                                                        reader.onload = function (e) {
+                                                            $('#imgpreview')
+                                                                .attr('src', e.target.result);
+                                                        };
+
+                                                        reader.readAsDataURL(input.files[0]);
+                                                    }
+                                                };
+                                        function clearbutton() {
+                                            $('#imgpreview').attr('src', '/{{ request.user.profile.img }}');
+                                            $('#ignore_file').attr('checked', true);
+                                        };
+                                    </script>
                                     <div style="width:100%;">
                                         <div class="6u 12u(mobile)" style="margin:auto;display:inline-block;" >
-                                            <label>Sign up for our email list?</label>   
+                                            <label>Current Picture</label>   
                                         </div>
                                     </div>
                                     <div style="width:100%;">
-                                        <div class="6u 12u(mobile)" style="margin:auto;display:inline-block;;padding-bottom:2em;" >
-                                            <input type="checkbox" name="email_list" id="email_list" {% if request.user.profile.email_list == True %} checked {% endif %}/>    
+                                        <div class="6u 12u(mobile)" style="margin:auto;display:inline-block;padding-bottom:2em;" >
+                                            <img id="imgpreview" src="/{{ request.user.profile.img }}" style="max-width:200px;">
+                                            <br/>
+                                            <label for="id_img" class="custom-file-upload">
+                                                Custom Upload
+                                            </label>
+                                            <input type='checkbox' name='ignore_file' id='ignore_file' style='display:none;'>
+                                            <input id="id_img" name="img" type="file" onchange="readURL(this);"/>
+
+
+                                            <label for="clear-button" class="custom-file-upload">
+                                                Clear
+                                            </label>
+                                            <input id="clear-button" type="button" onclick="clearbutton();" style="display:none;"/>
                                         </div>
                                     </div>
                                     <div style="width:100%;">
                                         <div class="6u 12u(mobile)" style="margin:auto;display:inline-block;" >
-                                            <label>Include your info in the neighborhood directory?</label>   
+                                            <label>Sign up for our email list?</label>
+                                             <input type="checkbox" name="email_list" id="email_list" {% if request.user.profile.email_list == True %} checked {% endif %}/>     
                                         </div>
                                     </div>
                                     <div style="width:100%;">
-                                        <div class="6u 12u(mobile)" style="margin:auto;display:inline-block;;padding-bottom:2em;" >
-                                            <input type="checkbox" name="directory_visible" id="directory_visible" {% if request.user.profile.directory_visible == True %} checked {% endif %}/>    
+                                        <div class="6u 12u(mobile)" style="margin:auto;display:inline-block;" >
+                                            <label>Include your info in the neighborhood directory?</label> 
+                                            <input type="checkbox" name="directory_visible" id="directory_visible" {% if request.user.profile.directory_visible == True %} checked {% endif %}/>   
                                         </div>
-                                    </div>
+                                    </div></br>
                                     {% endif %}
                                     <div class="12u">
                                         <ul class="buttons">

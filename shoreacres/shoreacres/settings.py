@@ -139,3 +139,6 @@ EMAIL_HOST_PASSWORD = 'Arnold, MD 21012'
 EMAIL_USE_TLS = True
 UNSUBSCRIBE_URL = 'unsubscribe_placeholder'
 FROM_EMAIL = 'shoreacresmd@gmail.com'
+MEDIA_URL = '/static/uploads/'
+MEDIA_ROOT = BASE_DIR
+MEDIA_URL = '/'

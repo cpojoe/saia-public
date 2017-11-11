@@ -11,8 +11,10 @@
                             </p>
                             <div class="row">
                             {% for p in profiles %}
-                                <article id='{{ p.last_name.0 }}' style="width:0px;height:0px;padding:0px;"></article>
+                                
                                 <div class="3u 12u(narrower)">
+                                    <article id='{{ p.last_name.0 }}' class="hidden_anchor"></article>
+                                    <a id='{{ p.user.username }}' class="hidden_anchor"></a>
                                     <section class="profile">
                                         <div class="img" style="background-image: url('/{{ p.img }}');">
                                         </div>
@@ -53,6 +55,11 @@
                                                     {{ p.first_name }} {{ p.last_name }}</br>
                                             </li>
                                             {% endif %}
+                                            <li>
+                                                <span class="icon fa-at"></span>
+                                                    {{ p.user.username }}</br>
+                                                </span>
+                                            </li>
                                             {% if p.email %}
                                             <li>
                                                 <span class="icon fa-envelope"></span>

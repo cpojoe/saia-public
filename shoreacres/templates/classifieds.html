@@ -6,11 +6,29 @@
                                 <h2>Classifieds</h2>
                             </header>
                             <p>Are you a babysitter? Do you <strong>NEED</strong> a babysitter? Want to sell that old couch? Post it here!</p>
+                            <footer>
+                              <ul class="buttons vertical">
+                                <li><a href="/classifieds/post/" class="button scrolly">New Post</a></li>
+                              </ul>
+                            </footer></br>
                             <div class="row">
+                            {% if classifieds %}
                             {% for c in classifieds %}
                                 <div class="3u 12u(narrower)">
                                     <section class="profile">
+                                      {% if c.img1 %}
                                         <div class="img" style="background-image: url('/{{ c.img1 }}');">
+                                      {% else %}
+                                        {% if c.img2 %}
+                                          <div class="img" style="background-image: url('/{{ c.img2 }}');">
+                                        {% else %}
+                                          {% if c.img3 %}
+                                            <div class="img" style="background-image: url('/{{ c.img3 }}');">
+                                          {% else %}
+                                            <div class="img" style="background-image: url('/static/images/classified.jpg');">
+                                          {% endif %}
+                                        {% endif %}
+                                      {% endif %}
                                         </div>
                                         <ul class="dir_info">
                                             <li>
@@ -33,5 +51,14 @@
                                 <div class="row">
                             {% endif %}
                             {% endfor %}
+                            {% else %}
+                                <div class="12u 12u(narrower)">
+                                    <section class="profile">
+                                        <div class="img" style="background-image: url('/static/images/classified.jpg');">
+                                        </div>
+                                          No active classifieds posted!<br>Would you like to <a href="/classifieds/post/">post something</a>?
+                                    </section>
+                                </div>
+                            {% endif %}
                             </div>
 {% endblock %}

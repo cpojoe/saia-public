@@ -5,12 +5,14 @@
                                 <span class="icon fa-newspaper-o"></span>
                                 <h2>{{ c.title }}</h2>
                             </header>
-                            <p>{{ c.description }}</br>Posted by: 
+                          </br>
+                            <div style="text-align:left;">{{ c.description }}</br></br>Posted by: 
                               {% if c.poster.directory_visible %}
                               <a href='/directory/#{{ c.poster.user.username }}'>{{ c.poster }}</a>
                               {% else %}
                               {{ c.poster }}
-                              {% endif %}</p></br>
+                              {% endif %}</br></br>
+                            </div>
                             <div class="row">
                             {% if c.img1 %}
                                 <div class="4u 12u(narrower)">

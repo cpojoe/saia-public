@@ -2,6 +2,7 @@ from django import template
 
 register = template.Library()
 
+
 @register.filter
 def get_nav_links(profiles):
     letters = list(set([x.last_name[0] for x in profiles]))

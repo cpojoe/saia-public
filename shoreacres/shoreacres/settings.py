@@ -42,8 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'saia',
-    'members',
 ]
+
+AUTHENTICATION_BACKENDS = ['saia.backends.CaseInsensitiveModelBackend', ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -56,6 +57,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'shoreacres.urls'
+LOGIN_URL = '/login/'
 
 TEMPLATES = [
     {
@@ -142,3 +144,6 @@ FROM_EMAIL = 'shoreacresmd@gmail.com'
 MEDIA_URL = '/static/uploads/'
 MEDIA_ROOT = BASE_DIR
 MEDIA_URL = '/'
+DEFAULT_USER_IMG = 'static/images/user.svg'
+DEFAULT_EVENT_IMG = 'static/images/event.jpg'
+RECAPTCHA_SECRET = '6LcwTTgUAAAAAK4nNtnf3UAh8FhDWS8IjiQMnbuw'

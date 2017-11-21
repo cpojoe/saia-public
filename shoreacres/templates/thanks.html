@@ -1,13 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-              <header class="special">
-                  <span class="icon fa-smile-o"></span>
-                  <h2>Thanks!</h2>
-              </header>
+                        <header class="special">
+                            <span class="icon fa-smile-o"></span>
+                            <h2>Thanks!</h2>
+                        </header>
+                        {{ message|safe }}
 
-              <div class="row">
-                Thank you for supporting our community!</br></br>Your payment was processed successfully!
-
-              </div>
 {% endblock %}

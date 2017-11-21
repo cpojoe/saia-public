@@ -2,96 +2,137 @@
 {% load static %}
 {% load tags %}
 {% block content %}
-                            <header class="special">
-                                <span class="icon fa-{{ icon }}"></span>
-                                <h2>{{ title }}</h2>
-                            </header>
-                            <p>
-                            {{ profiles|get_nav_links|safe }}
-                            </p>
-                            <div class="row">
-                            {% for p in profiles %}
+                        <header class="special">
+                            <span class="icon fa-{{ icon }}"></span>
+                            <h2>{{ title }}</h2>
+                        </header>
+                        <p>
+
+                        {{ profiles|get_nav_links|safe }}
+
+                        </p>
+                        <div class="row">
+
+                        {% for p in profiles %}
                                 
-                                <div class="3u 12u(narrower)">
-                                    <article id='{{ p.last_name.0 }}' class="hidden_anchor"></article>
-                                    <a id='{{ p.user.username }}' class="hidden_anchor"></a>
-                                    <section class="profile">
-                                        <div class="img" style="background-image: url('/{{ p.img }}');">
-                                        </div>
-                                        <ul class="dir_info">
-                                            {% if p.is_president %}
-                                            <li>
-                                                <span class="icon fa-institution"></span>
-                                                    President</br>
-                                            </li>
-                                            {% endif %}
-                                            {% if p.is_vice_president %}
-                                            <li>
-                                                <span class="icon fa-institution"></span>
-                                                    Vice President</br>
-                                            </li>
-                                            {% endif %}
-                                            {% if p.is_secretary %}
-                                            <li>
-                                                <span class="icon fa-institution"></span>
-                                                    Secretray</br>
-                                            </li>
-                                            {% endif %}
-                                            {% if p.is_treasurer %}
-                                            <li>
-                                                <span class="icon fa-institution"></span>
-                                                    Treasurer</br>
-                                            </li>
-                                            {% endif %}
-                                            {% if p.is_director %}
-                                            <li>
-                                                <span class="icon fa-institution"></span>
-                                                    Board of Directors</br>
-                                            </li>
-                                            {% endif %}
-                                            {% if p.first_name and p.last_name %}
-                                            <li>
-                                                <span class="icon fa-user"></span>
-                                                    {{ p.first_name }} {{ p.last_name }}</br>
-                                            </li>
-                                            {% endif %}
-                                            <li>
-                                                <span class="icon fa-at"></span>
-                                                    {{ p.user.username }}</br>
-                                                </span>
-                                            </li>
-                                            {% if p.email %}
-                                            <li>
-                                                <span class="icon fa-envelope"></span>
-                                                <a href="mailto:{{ p.email }}">{{ p.email }}</a></br>
-                                            </li>
-                                            {% endif %}
-                                            {% if p.phone %}
-                                            <li>
-                                                <span class="icon fa-phone"></span>
-                                                {{ p.phone }}
-                                            </li>
-                                            {% endif %}
-                                            {% if p.house_number and p.street %}
+                            <div class="3u 12u(narrower)">
+                                <article id='{{ p.last_name.0 }}' class="hidden_anchor"></article>
+                                <a id='{{ p.user.username }}' class="hidden_anchor"></a>
+                                <section class="profile">
+                                    <div class="img" style="background-image: url('/{{ p.img }}');">
+                                    </div>
+                                    <ul class="dir_info">
+
+                                        {% if p.is_president %}
+
+                                        <li>
+                                            <span class="icon fa-institution"></span>
+                                                President</br>
+                                        </li>
+
+                                        {% endif %}
+
+                                        {% if p.is_vice_president %}
+
+                                        <li>
+                                            <span class="icon fa-institution"></span>
+                                                Vice President</br>
+                                        </li>
+
+                                        {% endif %}
+
+                                        {% if p.is_secretary %}
+
+                                        <li>
+                                            <span class="icon fa-institution"></span>
+                                                Secretray</br>
+                                        </li>
+
+                                        {% endif %}
+
+                                        {% if p.is_treasurer %}
+
+                                        <li>
+                                            <span class="icon fa-institution"></span>
+                                                Treasurer</br>
+                                        </li>
+
+                                        {% endif %}
+
+                                        {% if p.is_director %}
+
+                                        <li>
+                                            <span class="icon fa-institution"></span>
+                                                Board of Directors</br>
+                                        </li>
+
+                                        {% endif %}
+
+                                        {% if p.first_name and p.last_name %}
+
+                                        <li>
+                                            <span class="icon fa-user"></span>
+
+                                                {{ p.first_name }} {{ p.last_name }}</br>
+
+                                        </li>
+
+                                        {% endif %}
+
+                                        <li>
+                                            <span class="icon fa-at"></span>
+
+                                                {{ p.user.username }}</br>
+
+                                            </span>
+                                        </li>
+
+                                        <li>
+                                            <span class="icon fa-envelope"></span>
+                                            <a href="mailto:{{ p.user.email }}">{{ p.user.email }}</a></br>
+                                        </li>
+
+                                        {% if p.phone %}
+
+                                        <li>
+                                            <span class="icon fa-phone"></span>
+
+                                            {{ p.phone }}
+
+                                        </li>
+
+                                        {% endif %}
+
+                                        {% if p.house_number and p.street %}
+
+                                        <li>
+                                            <span class="icon fa-home"></span>
+
+                                            {{ p.house_number }} {{ p.street }}
+
+                                        </li>
+
+                                        {% else %}
+
+                                            {% if p.street %}
                                             <li>
                                                 <span class="icon fa-home"></span>
-                                                {{ p.house_number }} {{ p.street }}
+
+                                                {{ p.street }}
+
                                             </li>
-                                            {% else %}
-                                                {% if p.street %}
-                                                <li>
-                                                    <span class="icon fa-home"></span>
-                                                    {{ p.street }}
-                                                </li>
-                                            {% endif %}
+
                                         {% endif %}
-                                    </ul>
-                                    </section>
-                                </div>
+
+                                    {% endif %}
+
+                                </ul>
+                                </section>
+                            </div>
                             {% if forloop.counter|divisibleby:4 %}
                                 </div>
                                 <div class="row">
                             {% endif %}
-                            {% endfor %}
-                            </div>
+                        {% endfor %}
+                        </div>
 {% endblock %}

@@ -1,0 +1,374 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137356913-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137356913-1');
+</script>
+		<title>Shore Acres Improvement Association</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="{% static 'assets/js/ie/html5shiv.js' %}"></script><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'assets/css/ie8.css' %}" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'assets/css/ie9.css' %}" /><![endif]-->
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+	</head>
+	<body class="index">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<header id="header" class="alt">
+				<h1 id="logo" style="font-family: 'Vollkorn', serif;"><a href="/">Shore Acres</a></h1>
+				<nav id="nav">
+					<ul>
+						<li class="submenu">
+							<a href="#">About</a>
+							<ul>
+								<li><a href="/">Main Page</a></li>
+								<li><a href="/about/">About</a></li>
+								<li><a href="/officers/">Officers</a></li>
+								<li><a href="/board/">Board of Directors</a></li>
+								<li><a href="/static/files/ShoreAcres-Bylaws.pdf">Bylaws</a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#">Community Info</a>
+							<ul>
+								<li><a href="/news/">Recent News</a></li>
+								<li><a href="/communityinfo/">Membership</a></li>
+								<li><a href="http://www.aacounty.org/departments/fire-department/">Anne Arundel Fire Dept.</a></li>
+								<li><a href="http://www.aacounty.org/departments/police-department/">Police</a></li>
+								<li><a href="https://www.aacps.org/Page/4148">Broadneck Elementary</a></li>
+								<li><a href="https://www.aacps.org/Page/3843">Magothy River MS</a></li>
+								<li><a href="http://broadneck.org/">Broadneck High School</a></li>
+								<li><a href="https://www.redfin.com/city/21236/MD/Arnold/filter/sort=lo-distance,viewport=39.107164713085936:39.00416788691406:-76.39074024921875:-76.52806935078125,no-outline,geo-address=Shore+Acres%0C+Arnold%0C+MD">Real Estate</a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#">Facilities</a>
+							<ul>
+								<li><a href="/facilities/info/">Info</a></li>
+								<li><a href="/facilities/sign/">Announcement Sign</a></li>
+								<li><a href="/facilities/beach/">Beach</a></li>
+								<li><a href="/facilities/boatramp/">Boat Ramp</a></li>
+								<li><a href="/facilities/clubhouse/">Clubhouse</a></li>
+								<li><a href="/facilities/recreationarea/">Recreation Area</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="/events/">Events</a>
+						</li>
+						<li>
+							<a href="/contact/">Contact</a>
+						</li>
+
+						{% if request.user.is_authenticated %}
+
+						<li class="submenu">
+							<a href="#">Members</a>
+							<ul>
+								<li><a href="/directory/">Directory</a></li>
+								<li><a href="/classifieds/">Classifieds</a></li>
+								<li><a href="/edit/">Edit My Profile</a></li>
+
+								{% if request.user.profile.is_president or request.user.profile.is_vice_president or request.user.profile.is_secretary or request.user.profile.is_treasurer or request.user.profile.is_director %}
+								
+									<li class="submenu">
+										<a href="#">ADMIN</a>
+										<ul>
+											<li><a href="/addnews/">Create News</a></li>
+											<li><a href="/events/create/">Create Event</a></li>
+											<li><a href="/editpositions/">Edit Positions</a></li>
+											<li><a href="/emailblast/">Email Blast</a></li>
+										</ul>
+									</li>
+									
+								{% endif %}
+
+							</ul>
+						</li>
+						<li><a href="/logout/" class="button special">Log Out</a></li>
+						
+						{% else %}
+						
+							<li><a href="/login/" class="button special">Login</a></li>
+
+						{% endif %}
+
+					</ul>
+				</nav>
+			</header>
+
+			<!-- Banner -->
+			<section id="banner" style="height:100vh;min-height:600px;">
+				<div class="inner">
+					<header>
+						<h2>Welcome</h2>
+					</header>
+
+					{% if request.user.is_authenticated %}
+					
+					<p>Welcome back, 
+					
+						{% if request.user.profile.first_name %}
+					
+							{{ request.user.profile.first_name }}
+					
+						{% else %}
+					
+							{{ request.user.username }}
+					
+						{% endif %}!
+					
+					{% else %}
+					
+						<p>Welcome to our Shore Acres 
+						</br>Community and thank you 
+						</br>for visiting our Improvement 
+						</br>Association website.</p>
+					
+					{% endif %}
+					
+					<footer>
+						<ul class="buttons vertical">
+							<li><a href="#main" class="button fit scrolly">Read More Below</a></li>
+						</ul>
+					</footer>
+				</div>
+			</section>
+
+			<!-- Main -->
+			<article id="main">
+
+				<header class="special container">
+					<span class="icon fa-anchor"></span>
+					<h2>Recent News</h2>
+				</header>
+
+				<!-- Two -->
+			</br>
+				<section class="wrapper style1 container special">
+					<div class="row">
+					
+						{% for n in news %}
+					
+							<div class="3u 12u(narrower)">
+                                <section class="profile">
+
+                                    <ul class="dir_info">
+
+                                        <li>
+                                            <span class="icon fa-calendar-o"></span>
+                                                {{ n.date|date }} {{ n.date|time }}
+                                        </li>
+
+                                        <li>
+                                            <span class="icon fa-at"></span>
+
+                                                {% if n.poster.directory_visible and request.user.is_authenticated %}
+                                                    <a href="/directory/#{{ n.poster.user.username }}">
+                                                {% endif %}
+                                                    {{ n.poster.user.username }}
+                                                {% if n.poster.directory_visible and request.user.is_authenticated %}
+                                                    </a>
+                                                {% endif %}</br>
+
+                                            </span>
+                                        </li>
+
+                                        <li>
+                                            <span class="icon fa-info-circle"></span>
+
+                                                {{ n.news }}</br>
+                                        </li>
+
+                                </ul>
+                                </section>
+							</div>
+
+						{% endfor %}
+
+					</div>
+
+					<div class="major">
+						<ul class="buttons">
+							<li><a href="/news/" class="button">Older News</a></li>
+						</ul>
+					</div>
+				</section>
+
+				<!-- Three -->
+				<section class="wrapper style3 container special">
+					<header class="major">
+						<h2>Upcoming Community Events</h2>
+					</header>
+					<div class="row">
+
+						{% if events %}
+						
+							{% for e in events %}
+						
+								<div class="3u 12u(narrower)">
+                                    <section class="profile">
+                                        <div class="img" style="background-image: url('{{ e.img.url }}');">
+                                        </div>
+                                        <ul class="dir_info">
+
+                                            <li>
+                                                <span class="icon fa-calendar-o"></span>
+                                                    {{ e.date|date }} {{ e.date|time }}
+                                            </li>
+
+                                            <li>
+                                                <span class="icon fa-tag"></span>
+
+                                                    {{ e.title|title }}</br>
+
+                                                </span>
+                                            </li>
+
+                                            <li>
+                                                <span class="icon fa-info-circle"></span>
+
+                                                    {{ e.description }}</br>
+                                            </li>
+
+                                    </ul>
+                                    </section>
+
+								</div>
+
+							{% endfor %}
+						
+						{% else %}
+						
+								<div class="12u 12u(narrower)">
+									<section>
+										<a href="#" class="image featured"><div class="img" style='background-image:url("{% static 'images/events.jpg' %}");'></div></a>
+										<header>
+											<h3>No Upcoming Events</h3>
+										</header>
+										<p>
+											Check back soon!
+										</p>
+									</section>
+								</div>
+
+						{% endif %}
+
+					</div>
+					
+					<div class="major">
+						<ul class="buttons">
+							<li><a href="/events/" class="button">See More</a></li>
+						</ul>
+					</div>
+					
+					<div class="row">
+						<div class="12u 12u(narrower)" style="padding-top:80px;">
+							<h2>Have something going on?</h2>
+							<p style='text-indent:0 !important; text-align:center; margin:1em;'>If you have an event the community would be interested in, submit it here to be included in the community calendar!</p>
+							<form action="/submitevent/" method="post">
+							
+								{% csrf_token %}
+							
+								<div class="row 50%">
+									<div class="6u 12u(mobile)">
+										<input type="text" name="name" placeholder="Name" required/>
+									</div>
+									<div class="6u 12u(mobile)">
+										<input type="text" name="email" placeholder="Email" requried/>
+									</div>
+								</div>
+								<div class="row 50%">
+									<div class="12u">
+										<input type="text" name="subject" placeholder="Subject" required/>
+									</div>
+								</div>
+								<div class="row 50%">
+									<div class="12u">
+										<textarea name="message" placeholder="Message" rows="7" required></textarea>
+									</div>
+								</div>
+								<div class="row">
+									<div class="12u">
+										<ul class="buttons">
+											<li><input type="submit" class="special" value="Send Message" /></li>
+										</ul>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</section>
+			</article>
+
+			<!-- Email List Sign Up -->
+			<section id="cta">
+
+			{% if request.user.is_authenticated == False or request.user.profile.email_list == False %}
+				<header>
+					<h2>Sign up for our e-mail list!</h2>
+					<p>Stay up to date with all of the Shore Acres info. Enter your email address below and you will be added to our e-mail update list.</p>
+				</header>
+
+				<footer>
+
+					<form action="/emailsignup/" method='post'>
+						{% csrf_token %}
+						
+						<div class="row 50%">
+							<div class="6u 12u(mobile)" style="float:inherit; margin: auto;">
+								<input type="text" id="email" name="email" placeholder="Email" style="background:rgba(255,255,255,.2);" required/>
+							</div>
+						</div>
+						<div class="row 50%" style="padding-top: 20px;">
+							<div class="12u">
+								<ul class="buttons">
+									<li><input type="submit" class="special" value="Sign Up!" /></li>
+								</ul>
+							</div>
+						</div>
+
+					</form>
+
+				</footer>
+				{% endif %}
+
+			</section>
+
+			<!-- Footer -->
+			<footer id="footer">
+
+				<ul class="icons">
+					<li><a href="#" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
+				</ul>
+
+				<ul class="copyright">
+					<li>&copy; Shore Acres Improvement Association</li><li>Website Donated By: <a href="http://www.codecaveinc.com">Code Cave Inc.</a></li>
+				</ul>
+
+			</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.dropotron.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.scrollgress.min.js' %}"></script>
+			<script src="{% static 'assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'assets/js/util.js' %}"></script>
+			<!--[if lte IE 8]><script src="{% static 'assets/js/ie/respond.min.js' %}"></script><![endif]-->
+			<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>

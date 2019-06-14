@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+                            <header class="special">
+                                <span class="icon fa-newspaper-o"></span>
+                                <h2>{{ c.title }}</h2>
+                            </header>
+                          </br>
+                            <div style="text-align:left;">{{ c.description }}</br></br>Posted by: 
+                              {% if c.poster.directory_visible %}
+                              <a href='/directory/#{{ c.poster.user.username }}'>{{ c.poster }}</a>
+                              {% else %}
+                              {{ c.poster }}
+                              {% endif %}</br></br>
+                            </div>
+                            <div class="row">
+                            {% if c.img1 %}
+                                <div class="4u 12u(narrower)">
+                                    <section class="profile">
+                                        <div id="image1" class="img classifiedimg" style="background-image: url('/{{ c.img1 }}');">
+                                        </div>
+                                    </section>
+                                </div>
+                            {% endif %}
+                            {% if c.img2 %}
+                                <div class="4u 12u(narrower)">
+                                    <section class="profile">
+                                        <div id="image2" class="img classifiedimg" style="background-image: url('/{{ c.img2 }}');">
+                                        </div>
+                                    </section>
+                                </div>
+                            {% endif %}
+                            {% if c.img3 %}
+                                <div class="4u 12u(narrower)">
+                                    <section class="profile">
+                                        <div id="image3" class="img classifiedimg" style="background-image: url('/{{ c.img3 }}');">
+                                        </div>
+                                    </section>
+                                </div>
+                            {% endif %}
+                                <div id="zoom-modal" class="modal">
+                                  <span id="close" class="close">&times;</span>
+                                  <img class="modal-content" id="modal-img">
+                                  <div id="caption"></div>
+                                </div>
+                            </div>
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script>
+{% if c.img1 %}
+$('#image1').click(function(){
+  $('#modal-img').attr('src','/{{ c.img1 }}');
+  $('#zoom-modal').css('display','block');
+});
+{% endif %}
+{% if c.img2 %}
+$('#image2').click(function(){
+  $('#modal-img').attr('src','/{{ c.img2 }}');
+  $('#zoom-modal').css('display','block');
+});
+{% endif %}
+{% if c.img3 %}
+$('#image3').click(function(){
+  $('#modal-img').attr('src','/{{ c.img3 }}');
+  $('#zoom-modal').css('display','block');
+});
+{% endif %}
+$('#close').click(function(){
+  $('#zoom-modal').css('display','none');
+});
+</script>
+{% endblock %}

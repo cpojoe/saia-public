@@ -1,0 +1,186 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137356913-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137356913-1');
+</script>
+		<title>Shore Acres Improvement Association</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="{% static 'assets/js/ie/html5shiv.js' %}"></script><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'assets/css/ie8.css' %}" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'assets/css/ie9.css' %}" /><![endif]-->
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<meta name="description" content="Shore Acres is a friendly, water priveleged community situated on the Broadneck Peninsula in Arnold, MD. The Shore Acres Improvement Association is a volunteer organization responsible for maintaining community facilities and handling community concerns."/>
+	</head>
+	<body class="index">
+		<div id="page-wrapper">
+			<!-- Header -->
+			<header id="header" class="reveal">
+				<h1 id="logo" style="font-family: 'Vollkorn', serif;"><a href="/">Shore Acres</a></h1>
+				<nav id="nav">
+					<ul>
+						<li class="submenu">
+							<a href="#">About</a>
+							<ul>
+								<li><a href="/">Main Page</a></li>
+								<li><a href="/about/">About</a></li>
+								<li><a href="/officers/">Officers</a></li>
+								<li><a href="/board/">Board of Directors</a></li>
+								<li><a href="/static/files/ShoreAcres-Bylaws.pdf">Bylaws</a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#">Community Info</a>
+							<ul>
+								<li><a href="/news/">Recent News</a></li>
+								<li><a href="/communityinfo/">Membership</a></li>
+								<li><a href="http://www.aacounty.org/departments/fire-department/">Anne Arundel Fire Dept.</a></li>
+								<li><a href="http://www.aacounty.org/departments/police-department/">Police</a></li>
+								<li><a href="https://www.aacps.org/Page/4148">Broadneck Elementary</a></li>
+								<li><a href="https://www.aacps.org/Page/3843">Magothy River MS</a></li>
+								<li><a href="http://broadneck.org/">Broadneck High School</a></li>
+								<li><a href="https://www.redfin.com/city/21236/MD/Arnold/filter/sort=lo-distance,viewport=39.107164713085936:39.00416788691406:-76.39074024921875:-76.52806935078125,no-outline,geo-address=Shore+Acres%0C+Arnold%0C+MD">Real Estate</a></li>
+                                                                <li><a href="http://www.magothyriver.org/">Magothy River Association</a></li>
+                                                                <li><a href="https://arnoldpreservationcouncil.org/">Arnold Preservation Council</a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#">Facilities</a>
+							<ul>
+								<li><a href="/facilities/info/">Info</a></li>
+								<li><a href="/facilities/sign/">Announcement Sign</a></li>
+								<li><a href="/facilities/beach/">Beach</a></li>
+								<li><a href="/facilities/boatramp/">Boat Ramp</a></li>
+								<li><a href="/facilities/clubhouse/">Clubhouse</a></li>
+								<li><a href="/facilities/recreationarea/">Recreation Area</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="/events/">Events</a>
+						</li>
+						<li>
+							<a href="/contact/">Contact</a>
+						</li>
+
+						{% if request.user.is_authenticated %}
+
+						<li class="submenu">
+							<a href="#">Members</a>
+							<ul>
+								<li><a href="/directory/">Directory</a></li>
+								<li><a href="/classifieds/">Classifieds</a></li>
+								<li><a href="/edit/">Edit My Profile</a></li>
+						
+								{% if request.user.profile.is_president or request.user.profile.is_vice_president or request.user.profile.is_secretary or request.user.profile.is_treasurer or request.user.profile.is_director %}
+						
+									<li class="submenu">
+										<a href="#">ADMIN</a>
+										<ul>
+											<li><a href="/addnews/">Create News</a></li>
+											<li><a href="/events/create/">Create Event</a></li>
+											<li><a href="/editpositions/">Edit Positions</a></li>
+											<li><a href="/emailblast/">Email Blast</a></li>
+										</ul>
+									</li>
+
+								{% endif %}
+
+							</ul>
+						</li>
+						<li><a href="/logout/" class="button special">Log Out</a></li>
+						
+						{% else %}
+						
+							<li><a href="/login/" class="button special">Login</a></li>
+						
+						{% endif %}
+					</ul>
+				</nav>
+			</header>
+			<!-- Main -->
+			<article id="main" style="padding-bottom:3em;">
+
+				<!-- Three -->
+					<section class="wrapper style3 container special">
+
+						{% block content %}
+						{% endblock %}
+
+					</section>
+
+			</article>
+
+			<!-- Email List -->
+			<section id="cta">
+
+				{% if request.user.is_authenticated == False or request.user.profile.email_list == False %}
+				
+				<header>
+					<h2>Sign up for our e-mail list!</h2>
+					<p>Stay up to date with all of the Shore Acres info. Enter your email address below and you will be added to our e-mail update list.</p>
+				</header>
+				<footer>
+					<form action="/emailsignup/" method='post'>
+				
+						{% csrf_token %}
+				
+						<div class="row 50%">
+							<div class="6u 12u(mobile)" style="float:inherit; margin: auto;">
+								{% if request.user.is_authenticated == False %}
+									<input type="text" id="email" name="email" placeholder="Email" style="background:rgba(255,255,255,.2);" required/>
+								{% else %}
+									<input type="hidden" id="email" name="email" placeholder="Email" value="{{ request.user.email }}" required/>
+								{% endif %}
+							</div>
+						</div>
+						<div class="row 50%" style="padding-top: 20px;">
+							<div class="12u">
+								<ul class="buttons">
+									<li><input type="submit" class="special" value="Sign Up!" /></li>
+								</ul>
+							</div>
+						</div>
+					</form>
+				</footer>
+				
+				{% endif %}
+
+			</section>
+
+			<!-- Footer -->
+			<footer id="footer">
+
+				<ul class="icons">
+					<li><a href="#" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
+				</ul>
+
+				<ul class="copyright">
+					<li>&copy; Shore Acres Improvement Association</li><li>Website Donated By: <a href="http://www.codecaveinc.com">Code Cave Inc.</a></li>
+				</ul>
+
+			</footer>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+		<script src="{% static 'assets/js/jquery.dropotron.min.js' %}"></script>
+		<script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
+		<script src="{% static 'assets/js/jquery.scrollgress.min.js' %}"></script>
+		<script src="{% static 'assets/js/skel.min.js' %}"></script>
+		<script src="{% static 'assets/js/util.js' %}"></script>
+		<!--[if lte IE 8]><script src="{% static 'assets/js/ie/respond.min.js' %}"></script><![endif]-->
+		<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>

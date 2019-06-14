@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+                            <header class="special">
+                                <span class="icon fa-envelope"></span>
+                                <h2>Unsubscribe</h2>
+                            </header>
+                          </br></br>
+                            <div class="row">
+                                   <div class="12u 12u(narrower)" style="padding-top:0em;">
+                                       <p>If you want to unsubscribe from the email list, you've come to the right place! Just enter your email address below and we will remove you.
+				   <form action="/unsubscribe/" method='post'>
+                                      {% csrf_token %}<br/><br/>
+                                          <div class="row 50%">
+                                                 <div class="12u">
+                                                        <input type="text" name="email" placeholder="email" required/>
+                                                 </div>
+                                          </div>
+                                          <div class="row">
+                                                 <div class="12u">
+                                                        <ul class="buttons">
+                                                               <li><input type="submit" class="special" value="Send Message" /></li>
+                                                        </ul>
+                                                 </div>
+                                          </div>
+                                   </form>
+                            </div>
+                            </div>
+{% endblock %}

@@ -20,6 +20,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.auth import views as auth_views
 
+# GARGBAGE
+# this needs to get fixed eventually
 
 urlpatterns = [
     url(r'^$', saia_views.index, name="index"),
@@ -34,10 +36,13 @@ urlpatterns = [
     url(r'^communityinfo/$', saia_views.communityinfo, name="communityinfo"),
     url(r'^news/$', saia_views.news, name='news'),
     url(r'^facilities/beach/$', saia_views.facilities_beach, name="facilities_beach"),
-    url(r'^facilities/boatramp/$', saia_views.facilities_boatramp, name="facilities_boatramp"),
-    url(r'^facilities/clubhouse/$', saia_views.facilities_clubhouse, name="facilities_clubhouse"),
+    url(r'^facilities/boatramp/$', saia_views.facilities_boatramp,
+        name="facilities_boatramp"),
+    url(r'^facilities/clubhouse/$', saia_views.facilities_clubhouse,
+        name="facilities_clubhouse"),
     url(r'^facilities/info/$', saia_views.facilities_info, name="facilities_info"),
-    url(r'^facilities/recreationarea/$', saia_views.facilities_recreationarea, name="facilities_recreationarea"),
+    url(r'^facilities/recreationarea/$',
+        saia_views.facilities_recreationarea, name="facilities_recreationarea"),
     url(r'^facilities/sign/$', saia_views.facilities_sign, name="facilities_sign"),
     url(r'^events/$', saia_views.events, name="events"),
     url(r'^events/create/$', saia_views.create_event, name='create_event'),
@@ -54,12 +59,16 @@ urlpatterns = [
     url(r'^submitevent/$', saia_views.submitevent, name='submitevent'),
     url(r'^classifieds/$', saia_views.classifieds, name='classifieds'),
     url(r'^classifieds/post/$', saia_views.postclassified, name='postclassified'),
-    url(r'^classifieds/?(?P<id>[0-9]+)/$', saia_views.view_classified, name='view_classified'),
+    url(r'^classifieds/?(?P<id>[0-9]+)/$',
+        saia_views.view_classified, name='view_classified'),
     url(r'^password_reset/$', auth_views.password_reset, name='password_reset'),
-    url(r'^password_reset/done/$', auth_views.password_reset_done, name='password_reset_done'),
+    url(r'^password_reset/done/$', auth_views.password_reset_done,
+        name='password_reset_done'),
     url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         auth_views.password_reset_confirm, name='password_reset_confirm'),
-    url(r'^reset/done/$', auth_views.password_reset_complete, name='password_reset_complete'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    url(r'^reset/done/$', auth_views.password_reset_complete,
+        name='password_reset_complete'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
+  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-handler404 = 'saia.views.index'
+#handler404 = 'saia.views.index'

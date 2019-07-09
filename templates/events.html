@@ -1,48 +1,151 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
-                            <header class="special">
-                                <span class="icon fa-calendar"></span>
-                <h2>Upcoming Community Events</h2>
-              </header>
-            </br>
-              <div class="row">
-                {% if events %}
-                  {% for event in events %}
-                    <div class="4u 12u(narrower)">
+{% extends 'base.html' %} {% load static %} {% block content %}
+<main id="content" class="content py-0">
+  <div
+    class="blog-single-cover scheme-light"
+    data-fullheight="true"
+    data-inview="true"
+    data-inview-options='{ "onImagesLoaded": true }'
+    style="background: transparent;"
+  >
+    <figure
+      class="blog-single-media"
+      data-responsive-bg="true"
+      data-parallax="true"
+      data-parallax-options='{ "parallaxBG": true, "triggerHook": "onLeave" }'
+      data-parallax-from='{ "translateY": "0%" }'
+      data-parallax-to='{ "translateY": "20%" }'
+    >
+      <img
+        src="{% static '/assets/bg/events.jpg' %}"
+        style="max-height: 960px; width: auto;"
+      />
+    </figure>
 
-                      <section class="events">
-                        
-                        <header>
-                          <div class="img" style='background-image:url("/{{ event.img }}");'></div>
-                          <h3>{{ event.title }}</h3>
-                          <h1>{{ event.date|date }} {{ event.date|time }}</h1>
-                        </header>
-                        <p>
-                          {{ event.description }}
-                        </p>
-                      </section>
+    <div
+      class="blog-single-details"
+      style="width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <header
+              class="entry-header blog-single-header"
+              data-parallax="true"
+              data-parallax-to='{ "opacity": 0, "translateY": "30%" }'
+              data-parallax-options='{ "triggerHook": "0.3" }'
+            >
+              <h1
+                class="blog-single-title entry-title h2"
+                data-split-text="true"
+                data-split-options='{ "type": "lines" }'
+              >
+                Upcoming Community Events
+              </h1>
+            </header>
+            <!-- /.blog-single-header -->
+          </div>
+          <!-- /.col-md-6 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.blog-single-details -->
+  </div>
+  <!-- /.blog-single-cover -->
 
-                    </div>
-                  {% if forloop.counter|divisibleby:3 %}
+  <article class="blog-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="blog-single-content entry-content pull-up expanded">
+            <div class="liquid-filter-items mb-60" id="blog-split-filters">
+              <ul class="filter-list filter-list-inline size-lg">
+                <li data-text="All" data-filter="*" class="active">
+                  <span>All</span>
+                </li>
+                {% for tag in tags %}
+                <li
+                  data-text="{{ tag.name }}"
+                  data-filter=".{{ tag.get_filter }}"
+                >
+                  <span>{{ tag.name }}</span>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+            <!-- /.liquid-filter-items -->
+            {% if events %} {% for event in events %}
+
+            <div
+              class="liquid-blog-grid liquid-blog-style-split row"
+              data-liquid-masonry="true"
+              data-masonry-options='{ "stagger": 0, "hiddenStyle": { "transform": "translateY(100px)", "opacity": 0 }, "visibleStyle": { "transform": "translateY(0)", "opacity": 1 }, "filtersID": "#blog-split-filters" }'
+            >
+              <div class="col-sm-12 masonry-item {{ event.get_tags_list }}">
+                <article
+                  class="liquid-lp liquid-blog-item liquid-blog-item-split liquid-blog-scheme-dark liquid-blog-scheme-dark-alt"
+                >
+                  <!-- prettier-ignore -->
+                  <figure
+                    class="liquid-lp-media col-md-3"
+                    style="
+                        background-image: url(/{{event.img}}); 
+                        background-size: cover; 
+                        background-position: center; 
+                        min-height: 300px;
+                        margin-top: 0;"
+                  >
+                    &nbsp;
+                  </figure>
+
+                  <div
+                    class="liquid-blog-item-inner"
+                    style="flex-basis: 0% important;"
+                  >
+                    <header class="liquid-lp-header">
+                      <h2 class="liquid-lp-title font-weight-bold h3 size-md">
+                        {{ event.title }}
+                      </h2>
+                      <div
+                        class="liquid-lp-details liquid-lp-details-lined size-sm text-uppercase lp-sp-1"
+                      >
+                        <time class="liquid-lp-date" datetime="2017-09-25"
+                          >{{ event.date | date }} {{ event.date | time }}</time
+                        >
                       </div>
-                      <div class="row">
-                  {% endif %}
-                  {% endfor %}
-                {% else %}
-                    <div class="12u 12u(narrower)">
+                      <!-- /.liquid-lp-details -->
+                    </header>
 
-                      <section>
-                        <a href="#" class="image featured"><div class="img" style='background-image:url("{% static 'images/def.jpg' %}");'></div></a>
-                        <header>
-                          <h3>No Upcoming Events</h3>
-                        </header>
-                        <p>
-                          Check back soon!
-                        </p>
-                      </section>
-
+                    <div class="liquid-lp-excerpt">
+                      <p>
+                        {{ event.description }}
+                      </p>
                     </div>
-                {% endif %}
-                </div>
+                    <!-- /.latest-post-excerptc -->
+                  </div>
+                  <!-- /.liquid-blog-item-inner -->
+                </article>
+              </div>
+              <!-- /.col-sm-12 -->
+            </div>
+            {% endfor %} {% endif %}
+            <!-- /.liqdui-blog-grid -->
+          </div>
+          <!-- /.col-md-8 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+      <!-- prettier-ignore -->
+    </div>
+  </article>
+  <!-- /.blog-single -->
+</main>
+<!-- /#content.content -->
 {% endblock %}

@@ -1,0 +1,16 @@
+@media screen and ( min-width: $grid-breakpoint-md ) {
+
+	.woocommerce-account:not(.logged-in) {
+	
+		#content {
+	
+			> .container {
+	
+				> .woocommerce {
+					width: 50%;
+					margin: 0 auto;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap');
+@font-face {
+  font-family: 'neuzeits-bookbook';
+  src: url('/static/assets/fonts/NeuzeitSLTBookHeavy.woff2') format('woff2'),
+    url('/static/assets/fonts/NeuzeitSLTBookHeavy.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --color-primary: #ea5498;
+  --color-gradient-start: #ea5498;
+  --color-gradient-stop: #ea5498;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  line-height: 1.75em;
+  font-size: 15px;
+  color: #9e9e9e;
+}
+
+.h1,
+h1,
+.h2,
+h2,
+.h3,
+h3,
+.h4,
+h4,
+.h5,
+h5,
+.h6,
+h6 {
+  /*font-family: 'Roboto', sans-serif;*/
+  font-family: 'Libre Baskerville', serif;
+  color: #282828;
+  font-weight: 500;
+}
+
+.h1,
+h1 {
+  font-weight: 700;
+  line-height: 1.6363em;
+  font-size: 55px;
+}
+
+.h2,
+h2 {
+  line-height: 1.111em;
+  font-size: 45px;
+}
+
+.h3,
+h3 {
+  line-height: 1.111em;
+  font-size: 37px;
+}
+
+.h4,
+h4 {
+  line-height: 1.7em;
+  font-size: 24px;
+}
+
+.h5,
+h5 {
+  line-height: 1.9em;
+  font-size: 20px;
+}
+
+.h6,
+h6 {
+  line-height: 1.8em;
+  font-size: 16px;
+}
+
+.main-header .social-icon:not([class*='scheme-']) a,
+.main-nav > li > a,
+.navbar-brand {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.main-header .social-icon:not([class*='scheme-']) a:hover,
+.main-nav > li > a:hover,
+.navbar-brand {
+  color: #000;
+}
+
+.main-nav > li > a {
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.main-nav > li.is-active > a,
+.main-nav > li.current-menu-item > a,
+.main-nav > li:hover > a,
+.main-nav > li > a:hover {
+  color: #fff;
+}
+
+.nav-light .main-nav > li > a {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.nav-light .main-nav > li > a .link-ext {
+  background-color: #fff;
+}
+
+.nav-dark .main-nav > li > a {
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.nav-dark .main-nav > li.is-active > a,
+.nav-dark .main-nav > li.current-menu-item > a,
+.nav-dark .main-nav > li:hover > a,
+.nav-dark .main-nav > li > a:hover {
+  color: #000;
+}
+
+.main-footer {
+  color: #92959b;
+}
+
+.main-footer a:not(.btn) {
+  color: #92959b;
+}
+
+.main-footer a:not(.btn):hover {
+  color: #fff;
+}
+
+@media (min-width: 1200px) {
+  .main-header .is-stuck {
+    background: #ffffff !important;
+  }
+  .mainbar-wrap.is-stuck .social-icon a,
+  .mainbar-wrap.is-stuck .header-module .ld-module-trigger,
+  .mainbar-wrap.is-stuck .main-nav > li > a,
+  .mainbar-wrap.is-stuck .navbar-brand {
+    color: #353535 !important;
+  }
+  .mainbar-wrap.is-stuck .social-icon a:hover,
+  .mainbar-wrap.is-stuck .main-nav > li > a:hover,
+  .mainbar-wrap.is-stuck .navbar-brand:hover {
+    color: #ff6faf !important;
+  }
+}

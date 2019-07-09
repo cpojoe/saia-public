@@ -1,186 +1,600 @@
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="theme-color" content="#3ed2a7">
+	<meta name="description" content="{% if meta_desc %}{{ meta_desc }}{% else %}Shore Acres is a quiet, water-privileged community located in Arnold, Maryland, only minutes from Annapolis, the US Naval Academy (USNA), and Fort Meade / NSA.{% endif %}"/>
+	
+	<link rel="shortcut icon" href="./favicon.png" />
+	
+	<title>Shore Acres Improvement Association {% if page_title %}| {{ page_title }} {% endif %}</title>
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137356913-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	
+	  gtag('config', 'UA-137356913-1');
+	</script>
 
-<!DOCTYPE HTML>
-<html>
-	<head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137356913-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Chelsea+Market%7CGreat+Vibes%7CJosefin+Slab%7CMuli" rel="stylesheet">
 
-  gtag('config', 'UA-137356913-1');
-</script>
-		<title>Shore Acres Improvement Association</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="{% static 'assets/js/ie/html5shiv.js' %}"></script><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'assets/css/ie8.css' %}" /><![endif]-->
-		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'assets/css/ie9.css' %}" /><![endif]-->
-		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
-		<meta name="description" content="Shore Acres is a friendly, water priveleged community situated on the Broadneck Peninsula in Arnold, MD. The Shore Acres Improvement Association is a volunteer organization responsible for maintaining community facilities and handling community concerns."/>
-	</head>
-	<body class="index">
-		<div id="page-wrapper">
-			<!-- Header -->
-			<header id="header" class="reveal">
-				<h1 id="logo" style="font-family: 'Vollkorn', serif;"><a href="/">Shore Acres</a></h1>
-				<nav id="nav">
-					<ul>
-						<li class="submenu">
-							<a href="#">About</a>
-							<ul>
-								<li><a href="/">Main Page</a></li>
-								<li><a href="/about/">About</a></li>
-								<li><a href="/officers/">Officers</a></li>
-								<li><a href="/board/">Board of Directors</a></li>
-								<li><a href="/static/files/ShoreAcres-Bylaws.pdf">Bylaws</a></li>
-							</ul>
-						</li>
-						<li class="submenu">
-							<a href="#">Community Info</a>
-							<ul>
-								<li><a href="/news/">Recent News</a></li>
-								<li><a href="/communityinfo/">Membership</a></li>
-								<li><a href="http://www.aacounty.org/departments/fire-department/">Anne Arundel Fire Dept.</a></li>
-								<li><a href="http://www.aacounty.org/departments/police-department/">Police</a></li>
-								<li><a href="https://www.aacps.org/Page/4148">Broadneck Elementary</a></li>
-								<li><a href="https://www.aacps.org/Page/3843">Magothy River MS</a></li>
-								<li><a href="http://broadneck.org/">Broadneck High School</a></li>
-								<li><a href="https://www.redfin.com/city/21236/MD/Arnold/filter/sort=lo-distance,viewport=39.107164713085936:39.00416788691406:-76.39074024921875:-76.52806935078125,no-outline,geo-address=Shore+Acres%0C+Arnold%0C+MD">Real Estate</a></li>
-                                                                <li><a href="http://www.magothyriver.org/">Magothy River Association</a></li>
-                                                                <li><a href="https://arnoldpreservationcouncil.org/">Arnold Preservation Council</a></li>
-							</ul>
-						</li>
-						<li class="submenu">
-							<a href="#">Facilities</a>
-							<ul>
-								<li><a href="/facilities/info/">Info</a></li>
-								<li><a href="/facilities/sign/">Announcement Sign</a></li>
-								<li><a href="/facilities/beach/">Beach</a></li>
-								<li><a href="/facilities/boatramp/">Boat Ramp</a></li>
-								<li><a href="/facilities/clubhouse/">Clubhouse</a></li>
-								<li><a href="/facilities/recreationarea/">Recreation Area</a></li>
-							</ul>
-						</li>
-						<li>
-							<a href="/events/">Events</a>
-						</li>
-						<li>
-							<a href="/contact/">Contact</a>
-						</li>
-
-						{% if request.user.is_authenticated %}
-
-						<li class="submenu">
-							<a href="#">Members</a>
-							<ul>
-								<li><a href="/directory/">Directory</a></li>
-								<li><a href="/classifieds/">Classifieds</a></li>
-								<li><a href="/edit/">Edit My Profile</a></li>
-						
-								{% if request.user.profile.is_president or request.user.profile.is_vice_president or request.user.profile.is_secretary or request.user.profile.is_treasurer or request.user.profile.is_director %}
-						
-									<li class="submenu">
-										<a href="#">ADMIN</a>
-										<ul>
-											<li><a href="/addnews/">Create News</a></li>
-											<li><a href="/events/create/">Create Event</a></li>
-											<li><a href="/editpositions/">Edit Positions</a></li>
-											<li><a href="/emailblast/">Email Blast</a></li>
-										</ul>
-									</li>
-
-								{% endif %}
-
-							</ul>
-						</li>
-						<li><a href="/logout/" class="button special">Log Out</a></li>
-						
-						{% else %}
-						
-							<li><a href="/login/" class="button special">Login</a></li>
-						
-						{% endif %}
-					</ul>
-				</nav>
-			</header>
-			<!-- Main -->
-			<article id="main" style="padding-bottom:3em;">
-
-				<!-- Three -->
-					<section class="wrapper style3 container special">
-
-						{% block content %}
-						{% endblock %}
-
-					</section>
-
-			</article>
-
-			<!-- Email List -->
-			<section id="cta">
-
-				{% if request.user.is_authenticated == False or request.user.profile.email_list == False %}
+	<link rel="stylesheet" href="{% static 'assets/vendors/liquid-icon/liquid-icon.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'assets/vendors/font-awesome/css/font-awesome.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'assets/css/theme-vendors.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'assets/css/theme.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'assets/css/themes/services.css' %}" />
+	
+	<!-- Head Libs -->
+	<script async src="{% static 'assets/vendors/modernizr.min.js' %}"></script>
+	
+</head>
+<body data-mobile-nav-trigger-alignment="right" data-mobile-nav-align="left" data-mobile-nav-style="minimal" data-mobile-nav-shceme="gray" data-mobile-header-scheme="gray" data-mobile-nav-breakpoint="1199" style="font-family: Muli;line-height: 2;">
+	
+	<div id="wrap">
+		
+			<header class="main-header main-header-overlay" data-react-to-megamenu="true" data-sticky-header="true" data-sticky-options='{ "stickyTrigger": "first-section" }'>
+			
+			<div class="mainbar-wrap">
 				
-				<header>
-					<h2>Sign up for our e-mail list!</h2>
-					<p>Stay up to date with all of the Shore Acres info. Enter your email address below and you will be added to our e-mail update list.</p>
-				</header>
-				<footer>
-					<form action="/emailsignup/" method='post'>
-				
-						{% csrf_token %}
-				
-						<div class="row 50%">
-							<div class="6u 12u(mobile)" style="float:inherit; margin: auto;">
-								{% if request.user.is_authenticated == False %}
-									<input type="text" id="email" name="email" placeholder="Email" style="background:rgba(255,255,255,.2);" required/>
-								{% else %}
-									<input type="hidden" id="email" name="email" placeholder="Email" value="{{ request.user.email }}" required/>
-								{% endif %}
-							</div>
-						</div>
-						<div class="row 50%" style="padding-top: 20px;">
-							<div class="12u">
-								<ul class="buttons">
-									<li><input type="submit" class="special" value="Sign Up!" /></li>
-								</ul>
-							</div>
-						</div>
-					</form>
-				</footer>
-				
-				{% endif %}
+				<div class="container mainbar-container">
+					<div class="mainbar">
+						<div class="row mainbar-row align-items-lg-stretch">
+							
+							<div class="col">
+								<div class="navbar-header">
+									<a class="navbar-brand" href="/" rel="home">
+										<span class="navbar-brand-inner font-size-24" style="font-family: 'neuzeits-bookbook', sans-serif">
+											Shore Acres
+										</span>
+									</a>
+									<button type="button" class="navbar-toggle collapsed nav-trigger style-mobile" data-toggle="collapse" data-target="#main-header-collapse" aria-expanded="false" data-changeclassnames='{ "html": "mobile-nav-activated overflow-hidden" }'>
+										<span class="sr-only">Toggle navigation</span>
+										<span class="bars">
+											<span class="bar"></span>
+											<span class="bar"></span>
+											<span class="bar"></span>
+										</span>
+									</button>
+								</div><!-- /.navbar-header -->
+							</div><!-- /.col -->
+							
+							<div class="col text-right">
+								
+								<div class="collapse navbar-collapse" id="main-header-collapse" aria-expanded="false" role="tablist" style="font-family: Muli;">
+									
+									<ul id="primary-nav" class="main-nav ld_header_menu_5c51ac47950e6 nav align-items-lg-stretch justify-content-lg-center" data-submenu-options='{ "toggleType": "fade", "handler": "mouse-in-out" }'>
+										
+										<li class="menu-item-has-children">
+											<a href="#">
+												<span class="link-icon"></span>
+												<span class="link-txt">
+													<span class="link-ext"></span>
+													<span class="txt">
+														About
+														<span class="submenu-expander">
+															<i class="fa fa-angle-down"></i>
+														</span>
+													</span>
+												</span>
+											</a>
+											<ul class="nav-item-children">
+												<li>
+													<a href="/about/">
+														<span class="link-icon"></span>
+														<span class="link-txt">
+															<span class="link-ext"></span>
+															<span class="txt">
+																About
+																<span class="submenu-expander">
+																	<i class="fa fa-angle-down"></i>
+																</span>
+															</span>
+														</span>
+													</a>
+												</li>
+												<li>
+													<a data-localscroll="false" href="/about#membership">
+														<span class="link-icon"></span>
+														<span class="link-txt">
+															<span class="link-ext"></span>
+															<span class="txt">
+																Membership
+																<span class="submenu-expander">
+																	<i class="fa fa-angle-down"></i>
+																</span>
+															</span>
+														</span>
+													</a>
+												</li>
+												<li>
+													<a href="/static/files/ShoreAcres-Bylaws.pdf">
+														<span class="link-icon"></span>
+														<span class="link-txt">
+															<span class="link-ext"></span>
+															<span class="txt">
+																Bylaws
+																<span class="submenu-expander">
+																	<i class="fa fa-angle-down"></i>
+																</span>
+															</span>
+														</span>
+													</a>
+												</li>
+											</ul>
+										</li>
 
+										<li>
+											<a href="/clubhouse/">
+												<span class="link-icon"></span>
+												<span class="link-txt">
+													<span class="link-ext"></span>
+													<span class="txt">Clubhouse</span>
+												</span>
+											</a>
+										</li>
+
+										<li class="menu-item-has-children">
+											<a href="#">
+												<span class="link-icon"></span>
+												<span class="link-txt">
+													<span class="link-ext"></span>
+													<span class="txt">
+														Neighborhood Info
+														<span class="submenu-expander">
+															<i class="fa fa-angle-down"></i>
+														</span>
+													</span>
+												</span>
+											</a>
+											<ul class="nav-item-children">
+												<!--<li>
+													<a href="/news/">
+														<span class="link-icon"></span>
+														<span class="link-txt">
+															<span class="link-ext"></span>
+															<span class="txt">
+																News
+																<span class="submenu-expander">
+																	<i class="fa fa-angle-down"></i>
+																</span>
+															</span>
+														</span>
+													</a>
+												</li>-->
+												<li>
+													<a href="http://www.aacounty.org/departments/fire-department/" target="_blank">
+														<span class="link-icon"></span>
+														<span class="link-txt">
+															<span class="link-ext"></span>
+															<span class="txt">
+																Fire Departmnet
+																<span class="submenu-expander">
+																	<i class="fa fa-angle-down"></i>
+																</span>
+															</span>
+														</span>
+													</a>
+												</li>
+												<li>
+													<a href="http://www.aacounty.org/departments/police-department/" target="_blank">
+														<span class="link-icon"></span>
+														<span class="link-txt">
+															<span class="link-ext"></span>
+															<span class="txt">
+																Police
+																<span class="submenu-expander">
+																	<i class="fa fa-angle-down"></i>
+																</span>
+															</span>
+														</span>
+													</a>
+												</li>
+
+												<li>
+													<a href="https://www.aacps.org/Page/4148" target="_blank">
+														<span class="link-icon"></span>
+														<span class="link-txt">
+															<span class="link-ext"></span>
+															<span class="txt">
+																Broadneck Elementary
+																<span class="submenu-expander">
+																	<i class="fa fa-angle-down"></i>
+																</span>
+															</span>
+														</span>
+													</a>
+												</li>
+
+												<li>
+													<a href="https://www.aacps.org/Page/3843" target="_blank">
+														<span class="link-icon"></span>
+														<span class="link-txt">
+															<span class="link-ext"></span>
+															<span class="txt">
+																Magothy River Middle School
+																<span class="submenu-expander">
+																	<i class="fa fa-angle-down"></i>
+																</span>
+															</span>
+														</span>
+													</a>
+												</li>
+
+												<li>
+													<a href="http://broadneck.org/" target="_blank">
+														<span class="link-icon"></span>
+														<span class="link-txt">
+															<span class="link-ext"></span>
+															<span class="txt">
+																Broadneck High School
+																<span class="submenu-expander">
+																	<i class="fa fa-angle-down"></i>
+																</span>
+															</span>
+														</span>
+													</a>
+												</li>
+
+												<li>
+													<a href="https://www.redfin.com/city/21236/MD/Arnold/filter/sort=lo-distance,viewport=39.107164713085936:39.00416788691406:-76.39074024921875:-76.52806935078125,no-outline,geo-address=Shore+Acres%0C+Arnold%0C+MD" target="_blank">
+														<span class="link-icon"></span>
+														<span class="link-txt">
+															<span class="link-ext"></span>
+															<span class="txt">
+																Real Estate
+																<span class="submenu-expander">
+																	<i class="fa fa-angle-down"></i>
+																</span>
+															</span>
+														</span>
+													</a>
+												</li>
+
+												<li>
+													<a href="http://www.magothyriver.org/" target="_blank">
+														<span class="link-icon"></span>
+														<span class="link-txt">
+															<span class="link-ext"></span>
+															<span class="txt">
+																Magothy River Association
+																<span class="submenu-expander">
+																	<i class="fa fa-angle-down"></i>
+																</span>
+															</span>
+														</span>
+													</a>
+												</li>
+
+												<li>
+													<a href="https://arnoldpreservationcouncil.org/" target="_blank">
+														<span class="link-icon"></span>
+														<span class="link-txt">
+															<span class="link-ext"></span>
+															<span class="txt">
+																Arnold Preservation Council
+																<span class="submenu-expander">
+																	<i class="fa fa-angle-down"></i>
+																</span>
+															</span>
+														</span>
+													</a>
+												</li>
+
+											</ul>
+										</li>
+
+										<li class="menu-item-has-children">
+											<a href="/amenities">
+												<span class="link-icon"></span>
+												<span class="link-txt">
+													<span class="link-ext"></span>
+													<span class="txt">
+														Amenities
+														<span class="submenu-expander">
+															<i class="fa fa-angle-down"></i>
+														</span>
+													</span>
+												</span>
+											</a>
+											<ul class="nav-item-children">
+												<li>
+													<a href="/amenities#sign">
+														<span class="link-icon"></span>
+														<span class="link-txt">
+															<span class="link-ext"></span>
+															<span class="txt">
+																Announcement Sign
+																<span class="submenu-expander">
+																	<i class="fa fa-angle-down"></i>
+																</span>
+															</span>
+														</span>
+													</a>
+												</li>
+												<li>
+													<a href="/amenities#beach">
+														<span class="link-icon"></span>
+														<span class="link-txt">
+															<span class="link-ext"></span>
+															<span class="txt">
+																Beach
+																<span class="submenu-expander">
+																	<i class="fa fa-angle-down"></i>
+																</span>
+															</span>
+														</span>
+													</a>
+												</li>
+												<li>
+													<a href="/amenities#boatramp">
+														<span class="link-icon"></span>
+														<span class="link-txt">
+															<span class="link-ext"></span>
+															<span class="txt">
+																Private Boat Ramp
+																<span class="submenu-expander">
+																	<i class="fa fa-angle-down"></i>
+																</span>
+															</span>
+														</span>
+													</a>
+												</li>
+												<li>
+													<a href="/amenities#recreationareas">
+														<span class="link-icon"></span>
+														<span class="link-txt">
+															<span class="link-ext"></span>
+															<span class="txt">
+																Recreation Areas
+																<span class="submenu-expander">
+																	<i class="fa fa-angle-down"></i>
+																</span>
+															</span>
+														</span>
+													</a>
+												</li>
+											</ul>
+										</li>
+
+										<li class="menu-item-has-children">
+											<a href="#">
+												<span class="link-icon"></span>
+												<span class="link-txt">
+													<span class="link-ext"></span>
+													<span class="txt">
+														What's Nearby
+														<span class="submenu-expander">
+															<i class="fa fa-angle-down"></i>
+														</span>
+													</span>
+												</span>
+											</a>
+											<ul class="nav-item-children">
+												<li>
+													<a href="#">
+														<span class="link-icon"></span>
+														<span class="link-txt">
+															<span class="link-ext"></span>
+															<span class="txt">
+																Contact us to be included here
+																<span class="submenu-expander">
+																	<i class="fa fa-angle-down"></i>
+																</span>
+															</span>
+														</span>
+													</a>
+												</li>
+											</ul>
+										</li>
+
+										<li>
+											<a href="/events/">
+												<span class="link-icon"></span>
+												<span class="link-txt">
+													<span class="link-ext"></span>
+													<span class="txt">Events</span>
+												</span>
+											</a>
+										</li>
+
+										<li>
+											<a href="#contact">
+												<span class="link-icon"></span>
+												<span class="link-txt">
+													<span class="link-ext"></span>
+													<span class="txt">Contact</span>
+												</span>
+											</a>
+										</li>
+
+									</ul>
+									
+								</div><!-- /.collapse -->
+								
+							</div><!-- /.col -->
+							
+						</div><!-- /.maonbar-row -->
+					</div><!-- /.mainbar -->
+				</div><!-- /.mainbar-container -->
+				
+			</div><!-- /.mainbar-wrap -->
+			
+		</header>
+		
+		{% block content %}
+		{% endblock %}
+		<a id="contact" style="height: 30px;">&nbsp;</a>
+		<section class="vc_row pt-100 pb-100">
+				<div class="container">
+					<div class="row">
+	
+						<div class="lqd-column col-md-12 px-4 pt-45 pb-30 bg-white box-shadow-1">
+	
+							<div class="row d-flex flex-wrap align-items-center">
+	
+								<div class="lqd-column col-md-6 col-md-offset-1">
+	
+									<header class="fancy-title">
+										<h2>Questions? Suggestions?</h2>
+										<p>We are here to serve our wonderful community and we'd love to hear your comments, concerns or ideas. This sends an email directly to the board, we will get it!</p>
+									</header><!-- /.fancy-title -->
+	
+								</div><!-- /.lqd-column col-md-6 col-md-offset-1 -->
+	
+								<div class="lqd-column col-md-4 hidden-sm hidden-xs text-right">
+	
+									<div class="iconbox text-right iconbox-xl" data-animate-icon="true" data-plugin-options='{"resetOnHover":true,"color":"rgb(216, 219, 226)","hoverColor":"rgb(0, 0, 0)"}'>
+										<div class="iconbox-icon-wrap">
+											<span class="iconbox-icon-container">
+												<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="64px" height="64px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve"> <polygon stroke-width="2" stroke-linejoin="bevel" stroke-miterlimit="10" points="1,30 63,1 23,41" /> <polygon stroke-width="2" stroke-linejoin="bevel" stroke-miterlimit="10" points="34,63 63,1 23,41" /> </svg>
+											</span>
+										</div><!-- /.iconbox-icon-wrap -->
+									</div><!-- /.iconbox -->
+								</div><!-- /.lqd-column col-md-4 hidden-sm hidden-xs -->
+	
+							</div><!-- /.row -->
+	
+							<div class="row">
+	
+								<div class="lqd-column col-md-10 col-md-offset-1">
+	
+									<div class="contact-form contact-form-inputs-underlined contact-form-button-circle">
+										<form action="{% static 'assets/php/mailer.php' %}" method="post" novalidate="novalidate">
+											<div class="row d-flex flex-wrap">
+												<div class="lqd-column col-md-6 mb-20">
+													<input class="lh-25 mb-30" type="text" name="name" aria-required="true" aria-invalid="false" placeholder="First Name" required>
+													<input class="lh-25 mb-30" type="email" name="email" aria-required="true" aria-invalid="false" placeholder="Your email address" required>
+													<input class="lh-25 mb-30" type="tel" name="mobile" aria-required="true" aria-invalid="false" placeholder="Mobile no" required>
+												</div><!-- /.col-md-6 -->
+												<div class="lqd-column col-md-6 mb-20">
+													<textarea cols="10" rows="6" name="message" aria-required="true" aria-invalid="false" placeholder="Message" required></textarea>
+												</div><!-- /.col-md-12 -->
+												<div class="lqd-column col-md-6">
+													<p class="font-size-16 opacity-07"><em>We will never share any of your information with anyone for any reason.</em></p>
+												</div><!-- /.col-md-6 -->
+												<div class="lqd-column col-md-6 text-md-right">
+													<input type="submit" value="Send message" class="font-size-13 ltr-sp-1 font-weight-bold">
+												</div><!-- /.col-md-6 -->
+											</div><!-- /.row -->
+										</form>
+										<div class="contact-form-result hidden"></div><!-- /.contact-form-result -->
+									</div><!-- /.contact-form -->
+	
+								</div><!-- /.col-md-10 col-md-offset-1 -->
+	
+							</div><!-- /.row -->
+	
+						</div><!-- /.lqd-column col-md-12 -->
+	
+					</div><!-- /.row -->
+				</div><!-- /.container -->
 			</section>
+	
+		<section class="vc_row pt-90 pb-90" style="background-image: url({% static 'assets/bg/newsletter.jpg' %});background-position: 50% 55%;" data-parallax="true" data-parallax-options='{"parallaxBG": true}' data-custom-animations="true" data-ca-options='{"triggerHandler":"inview","animationTarget":".lqd-column","duration":"1200","delay":100,"easing":"easeOutQuint","direction":"forward","initValues":{"translateY":0,"opacity":0},"animations":{"translateY":0,"opacity":1}}'>
+			<div class="container">
+				<div class="row">
+	
+					<div class="lqd-column col-md-8 col-md-offset-2">
+	
+						<header class="fancy-title text-center">
+							<h2 class="mb-1 text-white">Stay Informed</h2>
+							<p class="text-white font-size-24">Get the latest news delivered directly to your inbox!</p>
+						</header>
+	
+					</div><!-- /.lqd-column col-md-8 col-md-offset-2 -->
+	
+					<div class="lqd-column col-md-8 col-md-offset-2 text-center">
+	
+						<div class="ld-sf ld-sf--input-solid ld-sf--button-solid ld-sf--size-md ld-sf--round ld-sf--border-thin ld-sf--button-show ld-sf--button-inline">
+							<form id="ld_subscribe_form-5" class="ld_sf_form" action="https://gmail.us3.list-manage.com/subscribe?u=0f4e383bc15d3e018cb3b44ad&id=c19b981499" name="mc-embedded-subscribe-form" method="post">
+								<p class="ld_sf_paragraph pr-2">
+									<input class="ld_sf_text bg-gray pl-4" type="email" id="mce-EMAIL" name="EMAIL" placeholder="Your email">
+								</p>
+	
+								<button type="submit" class="btn btn-solid text-uppercase btn-md round border-thin font-size-13 text-uppercase ltr-sp-15 px-3 lh-175 py-1 mb-2">
+									<span class="submit-text">Subscribe</span>
+									<span class="ld-sf-spinner">
+										<span>Sending </span>
+									</span>
+								</button>
+							</form>
+							<div class="ld_sf_response"></div>
+						</div><!-- /.ld-sf -->
+						
+					</div><!-- /.lqd-column col-md8 col-md-offset-2 -->
+	
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</section>
 
-			<!-- Footer -->
-			<footer id="footer">
+	<footer class="main-footer bg-shark pt-90">
+		
+		<section>
+			<div class="container">
+				<div class="row d-flex flex-wrap">
 
-				<ul class="icons">
-					<li><a href="#" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
-				</ul>
+					<div class="lqd-column col-md-6 col-sm-6">
 
-				<ul class="copyright">
-					<li>&copy; Shore Acres Improvement Association</li><li>Website Donated By: <a href="http://www.codecaveinc.com">Code Cave Inc.</a></li>
-				</ul>
+						<h3 class="widget-title text-white">About us</h3>
+						<p>Located in Arnold, Maryland along the Magothy River, Shore Acres is a water-privileged community full of amenities including a private beach and boat ramp. The Shore Acres Improvement Association is a 100% voluntary community improvement association responsible for maintaining our community's beautiful amenities, planning events, and addressing community concerns.</p>
 
-			</footer>
+					</div><!-- /.col-md-3 -->
 
-		</div>
+					<div class="lqd-column col-md-3 col-sm-6">
 
-		<!-- Scripts -->
-		<script src="{% static 'assets/js/jquery.min.js' %}"></script>
-		<script src="{% static 'assets/js/jquery.dropotron.min.js' %}"></script>
-		<script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
-		<script src="{% static 'assets/js/jquery.scrollgress.min.js' %}"></script>
-		<script src="{% static 'assets/js/skel.min.js' %}"></script>
-		<script src="{% static 'assets/js/util.js' %}"></script>
-		<!--[if lte IE 8]><script src="{% static 'assets/js/ie/respond.min.js' %}"></script><![endif]-->
-		<script src="{% static 'assets/js/main.js' %}"></script>
+						<h3 class="widget-title text-white">Useful Links</h3>
+						<ul class="lqd-custom-menu reset-ul font-size-14 lh-2">
+							<li class="mb-1"><a href="/about/">About Us</a></li>
+							<li class="mb-1"><a href="{% static 'files/ShoreAcres-Bylaws.pdf' %}">Our Bylaws</a></li>
+							<li class="mb-1"><a href="/clubhouse/">Clubhouse Information</a></li>
+							<li class="mb-1"><a href="/membership/">Membership</a></li>
+							<li class="mb-1"><a href="https://www.redfin.com/city/21236/MD/Arnold/filter/sort=lo-distance,viewport=39.107164713085936:39.00416788691406:-76.39074024921875:-76.52806935078125,no-outline,geo-address=Shore+Acres%0C+Arnold%0C+MD" target="_blank">Real Estate</a></li>
+							<li class="mb-1"><a href="/contact/">Contact</a></li>
+						</ul>
 
-	</body>
+					</div><!-- /.col-md-3 -->
+
+					<div class="lqd-column col-md-3 col-sm-6">
+
+						<h3 class="widget-title text-white">Contact Us</h3>
+						<p class="mb-4">
+							<a href="mailto:shoreacresmd@gmail.com">Email The Board</a><br>
+							<a href="mailto:will@brattain.io">Email The President</a><br>
+							Clubhouse: <a href="https://www.google.com/maps/place/974+Magothy+Ave,+Arnold,+MD+21012/@39.0555471,-76.4568174,18.76z/data=!4m5!3m4!1s0x89b80282aee08a53:0xf25b054af9b25be3!8m2!3d39.0550229!4d-76.4562751">974 Magothy Ave</a><br>
+							Mail: SAIA, PO Box 12, Arnold, MD, 21012
+						</p>
+					</div><!-- /.col-md-3 -->
+
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</section>
+
+		<section class="bt-fade-white-015 bg-dark pt-25 pb-25 mt-50">
+			<div class="container">
+				<div class="row">
+
+					<div class="lqd-column col-md-12 text-center">
+						<p class="my-0">This website was happily donated by <a href="http://www.codecaveinc.com">CodeCave Inc.</a></p>
+					</div><!-- /.col-md-12 text-center -->
+
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</section>
+		
+	</footer><!-- /.main-footer -->
+	
+</div><!-- /#wrap -->
+
+<script src="{% static 'assets/vendors/jquery.min.js' %}"></script>
+<script src="{% static 'assets/js/theme-vendors.js' %}"></script>
+<script src="{% static 'assets/js/theme.min.js' %}"></script>
+
+</body>
 </html>

@@ -1,0 +1,32 @@
+.lqd-woo-steps {
+	border-color: rgba(#fff, 0.22);
+}
+.lqd-woo-steps-number {
+	background: #fff;
+	color: #000;
+}
+.lqd-woo-steps-item {
+	color: #fff;
+
+	&.is-active {
+
+		.lqd-woo-steps-number {
+			color: #fff;
+		}
+	}
+}
+
+.woocommerce {
+
+	.woocommerce-error,
+	.woocommerce-info,
+	.woocommerce-message {
+		color: #fff;
+	}
+	.ui-spinner {
+			
+		.ui-spinner-input {
+			color: #fff;
+		}
+	}
+}

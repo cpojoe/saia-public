@@ -1,0 +1,244 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<main id="content" class="content py-0">
+  <div
+    class="blog-single-cover scheme-light"
+    data-fullheight="true"
+    data-inview="true"
+    data-inview-options='{ "onImagesLoaded": true }'
+    style="background: transparent;"
+  >
+    <figure
+      class="blog-single-media"
+      data-responsive-bg="true"
+      data-parallax="true"
+      data-parallax-options='{ "parallaxBG": true, "triggerHook": "onLeave" }'
+      data-parallax-from='{ "translateY": "0%" }'
+      data-parallax-to='{ "translateY": "20%" }'
+    >
+      <img
+        src="{% static '/assets/bg/amenities.jpg' %}"
+        style="max-height: 960px; width: auto;"
+      />
+    </figure>
+
+    <div
+      class="blog-single-details"
+      style="width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <header
+              class="entry-header blog-single-header"
+              data-parallax="true"
+              data-parallax-to='{ "opacity": 0, "translateY": "30%" }'
+              data-parallax-options='{ "triggerHook": "0.3" }'
+            >
+              <h1
+                class="blog-single-title entry-title h2"
+                data-split-text="true"
+                data-split-options='{ "type": "lines" }'
+              >
+                Shore Acres Facilities and Amenities
+              </h1>
+            </header>
+            <!-- /.blog-single-header -->
+          </div>
+          <!-- /.col-md-6 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.blog-single-details -->
+  </div>
+  <!-- /.blog-single-cover -->
+
+  <article class="blog-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="blog-single-content entry-content pull-up expanded">
+            <h3>Overview</h3>
+
+            <p>
+              The Shore Acres community is only minutes from downtown Annapolis,
+              USNA, and the Bay Bridge with convenient access to US Route 50, MD
+              Route 2, and MD 100. In additional to being filled with mature
+              trees, the area also features beautiful water views and bay access
+              that come with life on a peninsula. On top of the wonderful
+              amenities the area generally offers, the Shore Acres Improvement
+              Association owns and maintains a number of facilities for the
+              pleasure of our residents, property owners, and guests.
+            </p>
+
+            <a id="sign" style="height: 30px;">&nbsp;</a>
+            <h3>Announcement Sign</h3>
+
+            <p>
+              We have an annoucement board at the intersection of Shore Acres
+              and Deep Creek. This sign generally shares messages about the
+              community or upcoming events. If you'd like to use the
+              announcement board, feel free to
+              <a href="/contact">contact us</a>!
+            </p>
+
+            <a id="beach" style="height: 30px;">&nbsp;</a>
+            <h3>The Beach</h3>
+
+            <p>
+              The beach is available for all residents, property owners and
+              guests of our community to use regardless of membership status.
+              The beach features picnic tables, grills, a volleyball court,
+              chairs, parking, and a kayak / canoe / paddleboard rack. Your
+              space in the kayak rack can be reserved via the membership form.
+            </p>
+
+            <h4>Beach Rules</h4>
+            <ul class="reset-ul text-fade-black-08 ltr-sp-025 ml-5">
+              <li class="mb-1">
+                Beach usage is limited to the Shore Acres community and their
+                guests only.
+              </li>
+              <li class="mb-1">
+                Shore Acres community member must accompany all guests at all
+                times.
+              </li>
+              <li class="mb-1">
+                Glass containers are not permitted on the beach.
+              </li>
+              <li class="mb-1">
+                Motorized vehicles are only permitted in the parking lot.
+              </li>
+              <li class="mb-1">
+                The parking lot is for automobiles only. Trailer parking is not
+                permitted.
+              </li>
+              <li class="mb-3">
+                Fires are not permitted outside of the grill.
+              </li>
+            </ul>
+
+            <a id="boatramp" style="height: 30px;">&nbsp;</a>
+            <h3>Boat Ramp</h3>
+
+            <p>
+              Boat ramp access is available for members of the Shore Acres
+              community who acquire a permit for an additional fee from the
+              SAIA. SAIA members who own property within the Lake Placid
+              Waterway Improvement Tax District and are suject to a dredging
+              surcharge on their property taxes may be issued a boat ramp permit
+              without charge. A permit is required to use the boat ramp. A
+              permit is valid for the property owners and residents of the
+              address associated with the permit only. A permit holder may
+              obtain an additional key at the price of $5.00. Permits expire in
+              May each year. You can obtain a new permit when you submit your
+              <a href="/about#membership">membership form</a>. If you need a
+              permit after submitting your membership, please
+              <a href="/contact/">contact us here</a> or reach out to Cyndy
+              (410-349-0259) or Chris (410-757-4779) directly for assistance.
+            </p>
+
+            <p>
+              Starting in May 2020, the boat ramp will be accessible via PIN
+              instead of traditional key. Every permit holder will have a PIN
+              issued to them in order to access the ramp. The smart locks that
+              are being installed will provide the community valuable insight
+              into the boat ramp's usage and an additional later of security.
+            </p>
+
+            <h4>Boat Ramp Rules</h4>
+            <ul class="reset-ul text-fade-black-08 ltr-sp-025 ml-5">
+              <li class="mb-1">
+                Keys are not to be lent out or shared under any conditions.
+              </li>
+              <li class="mb-1">
+                The boat ramp is to be locked after each use, both when putting
+                the boat into the water, and taking it out.
+              </li>
+              <li class="mb-1">
+                The ramp may not be used for any commercial purposes without
+                express, written approval by SAIA.
+              </li>
+              <li class="mb-1">
+                No trailers are to be parked at the beach, trailers must be
+                returned to your home for the duration of your boating.
+              </li>
+              <li class="mb-1">
+                The parking lot is for automobiles only. Trailer parking is not
+                permitted.
+              </li>
+              <li class="mb-1">
+                Boats may be tied up at the pier only while awaiting the arrival
+                or departure of the trailer.
+              </li>
+              <li class="mb-1">
+                Be courteous of others and obey all traffic laws at all times.
+              </li>
+              <li class="mb-1">
+                The speed limit on the lake and in the boat channel is 6 mph
+                inside the stone jetty.
+              </li>
+              <li class="mb-1">
+                By submitting payment for the boat ramp permit, the resident or
+                property owner agrees to the rules of the boat ramp.
+              </li>
+              <li class="mb-3">
+                Should violations occur, SAIA may revoke the violator's permit
+                and suspend future permit priveleges.
+              </li>
+            </ul>
+
+            <a id="recreationareas" style="height: 30px;">&nbsp;</a>
+            <h3>Recreation Area</h3>
+
+            <p>
+              A recreation field and playground are located on the clubhouse
+              grounds. The recreation area at the SAIA clubhouse comprises the
+              basketball court, playground, sand box, benches, picnic tables,
+              and grassy field in between. It is owned and maintained by the
+              Association. The recreation area is available for use by all
+              members of the Shore Acres community and their guests, regardless
+              of membership status. But it is for the exclusive use of the
+              community. Guests must be accompanied by a Shore Acres resident at
+              all times.RULES OF THE RECREATION AREA The recreation area is open
+              during daylight hours. The basketball court is open until lights
+              out, or 9:30 PM, whichever is earliest. The area behind the
+              clubhouse is not part of the recreation area and is not authorized
+              for public use. Children under the age of 9 must be supervised by
+              someone at least 13 years of age. The Improvement Association
+              reserves the right to remove anyone from the premises for
+              inappropriate or objectionable behavior. The facilities are
+              available on a first-come-first-served basis, except that the
+              Association may pre-empt their use for Association functions, and
+              the Association may pre-empt use of the basketball court or any
+              other sports-related part of the area for scheduled games.
+              Violators of these rules are considered trespassers and may be
+              subject to revocation of access privileges.
+            </p>
+            <ul class="reset-ul text-fade-black-08 ltr-sp-025 ml-5">
+              <li class="mb-1">SAIA</li>
+              <li class="mb-1">PO Box 12</li>
+              <li class="mb-3">Arnold, MD, 21012</li>
+            </ul>
+
+            <footer class="blog-single-footer entry-footer"></footer>
+            <!-- /.blog-single-footer entry-footer -->
+          </div>
+          <!-- /.col-md-8 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+      <!-- prettier-ignore -->
+    </div>
+  </article>
+  <!-- /.blog-single -->
+</main>
+<!-- /#content.content -->
+{% endblock %}

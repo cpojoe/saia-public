@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'saia',
 ]
 
-AUTHENTICATION_BACKENDS = ['saia.backends.CaseInsensitiveModelBackend', ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -142,7 +141,7 @@ EMAIL_HOST_PASSWORD = 'Arnold, MD 21012'
 EMAIL_USE_TLS = True
 UNSUBSCRIBE_URL = 'http://www.shoreacresmd.org/unsubscribe/'
 FROM_EMAIL = 'shoreacresmd@gmail.com'
-MEDIA_URL = '/media/static/uploads/'
+MEDIA_URL = '/media/uploads/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 DEFAULT_USER_IMG = '/static/images/user.svg'

@@ -1,0 +1,18 @@
+.woocommerce {
+
+	.woocommerce-products-header {
+
+		.woocommerce-products-header__title {
+			margin-bottom: 1em;
+		}
+	}
+
+	&.achive {
+
+		.main-sidebar {
+			padding-top: 35px;
+		}
+	}
+}
+
+@import 'pagination';

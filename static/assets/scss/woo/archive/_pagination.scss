@@ -1,0 +1,37 @@
+.woocommerce {
+
+	.woocommerce-pagination {
+		margin-bottom: 75px;
+		
+		ul.page-numbers {
+			margin: 0;
+			padding: 0;
+			border: none;
+			list-style: none;
+			font-size: 16px;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+		
+			li {
+				display: inline-block;
+				margin-left: 8px;
+				margin-right: 8px;
+				border: none;
+				float: none;
+
+				span,
+				a {
+					min-width: 0;
+					padding: 0;
+					font-weight: inherit;
+				}
+				a:hover,
+				span.current {
+					background: none;
+					color: #000;
+				}
+			}
+		}
+	}
+}

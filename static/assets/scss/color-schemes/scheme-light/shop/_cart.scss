@@ -1,0 +1,59 @@
+.woocommerce {
+	
+	.woocommerce-cart-form {
+		
+		table.shop_table {
+			
+			thead {
+				background-color: #2f3342;
+				color: #fff;
+			}
+			tbody {
+				color: #fff;
+
+				tr {
+					
+					&:nth-child(even) {
+						background-color: #484a52;
+					}
+				}
+			}
+			.product-name {
+
+				a {
+					color: #fff;
+				}
+			}
+			.ld-product-quantity {
+				
+				.ui-spinner .ui-button {
+					border-color: rgba(#fff, 0.15);
+					color: #fff;
+				}
+			}
+			.woo-actions-inner {
+			
+				.continue_shopping {
+					color: #fff;
+					border-color: rgba(#fff, 0.15);
+				}
+				.update_cart {
+					background-color: #fff;
+					color: #000;
+
+					&:hover {
+						color: #fff;
+					}
+				}
+			}
+		}
+		
+		.cart-coupon-inner {
+			
+			input {
+				background-color: transparent;
+				color: #fff;
+			}
+		}
+	}
+}

@@ -1,0 +1,33 @@
+.lqd-sticky-bg-spacer,
+.lqd-sticky-bg-wrap,
+.lqd-sticky-bg {
+	background-size: inherit;
+	background-position: inherit;
+	background-attachment: inherit;
+	background-repeat: inherit;
+	max-height: 100vh;
+}
+.lqd-sticky-bg-wrap,
+.lqd-sticky-bg {
+	min-height: 100vh;
+	width: 100%;
+}
+.lqd-sticky-bg-wrap {
+	overflow: hidden;
+
+	[data-shrink-borders=true] & {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+	}
+}
+
+// body
+.compose-mode {
+
+	.lqd-sticky-bg-wrap {
+		display: none;
+	}
+}

@@ -1,0 +1,53 @@
+/*********************************************************
+-------------
+MOBULE HEADER
+-------------
+
+- Nav trigger alignment
+[data-mobile-nav-trigger-alignment]: [left, right]
+
+- Nav Style
+[data-mobile-nav-style]: [classic, minimal, modern]
+
+- Nav scheme
+[data-mobile-nav-scheme]: [gray, light, dark]
+
+- Nav alignment
+[data-mobile-nav-align]: [left, center]
+
+- Header Scheme
+[data-mobile-header-scheme]: [light, gray, dark]
+
+*********************************************************/
+
+[data-mobile-nav-trigger-alignment=left] {
+
+  .navbar-header {
+    
+    .navbar-toggle {
+      margin-left: 0;
+      order: -1;
+    }
+    .navbar-brand {
+      margin-left: auto;
+    }
+  }
+}
+[data-mobile-nav-trigger-alignment=right] {
+
+  .navbar-header {
+    
+    .navbar-toggle {
+      margin-right: 0;
+      order: 1;
+    }
+    .navbar-brand {
+      margin-right: auto;
+    }
+  }
+}
+.main-header {
+  position: relative;
+  top: auto;
+  left: auto;
+}

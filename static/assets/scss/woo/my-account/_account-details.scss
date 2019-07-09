@@ -1,0 +1,60 @@
+.woocommerce {
+
+	.woocommerce-MyAccount-content {
+
+		form.woocommerce-EditAccountForm {
+
+			h3 {
+				margin: 1.5em 0 em(25, 35);
+				font-size: 35px;
+				line-height: 1.5em;
+				font-weight: 700;
+			}
+			.form-row {
+				margin-bottom: 13px;
+	
+				label {
+					font-size: 15px;
+					font-weight: 500;
+					
+					.required {
+						color: #D0021B;
+					}
+				}
+				.select2-selection--single,
+				.input-text,
+				textarea {
+					padding: 15px 25px;
+					border: 1px solid #E1E1E1;
+					border-radius: 0;
+					background: none;
+	
+					&:focus {
+						border-color: var(--color-primary);
+					}
+				}
+				textarea.input-text {
+					height: auto;
+				}
+				.select2-selection--single,
+				.input-text {
+					display: flex;
+					height: 45px;
+					align-items: center;
+				}
+				.select2-container--open {
+	
+					.select2-selection--single {
+						border-color: transparent;
+						background-color: #F9F9F9;
+						color: #3C3C3C;
+						border-radius: 5px 5px 0 0;
+					}
+				}
+			}
+			legend {
+				padding-bottom: 0.5em;
+			}
+		}
+	}
+}

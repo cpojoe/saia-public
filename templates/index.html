@@ -1,374 +1,464 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE HTML>
-<html>
-	<head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137356913-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+{% block content %}
+<main class="content">
+			
+		<section
+		class="vc_row fullheight d-flex flex-wrap align-items-center bg-cover bg-center py-6"
+		data-row-bg="{% static 'assets/bg/main.jpg' %}"
+		style="background-position: top left, top center;"
+		>
 
-  gtag('config', 'UA-137356913-1');
-</script>
-		<title>Shore Acres Improvement Association</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="{% static 'assets/js/ie/html5shiv.js' %}"></script><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'assets/css/ie8.css' %}" /><![endif]-->
-		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'assets/css/ie9.css' %}" /><![endif]-->
-		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
-	</head>
-	<body class="index">
-		<div id="page-wrapper">
+		<span class="row-bg-loader"></span>
+		
+		<div class="container">
+			<div class="row">
 
-			<!-- Header -->
-			<header id="header" class="alt">
-				<h1 id="logo" style="font-family: 'Vollkorn', serif;"><a href="/">Shore Acres</a></h1>
-				<nav id="nav">
-					<ul>
-						<li class="submenu">
-							<a href="#">About</a>
-							<ul>
-								<li><a href="/">Main Page</a></li>
-								<li><a href="/about/">About</a></li>
-								<li><a href="/officers/">Officers</a></li>
-								<li><a href="/board/">Board of Directors</a></li>
-								<li><a href="/static/files/ShoreAcres-Bylaws.pdf">Bylaws</a></li>
-							</ul>
-						</li>
-						<li class="submenu">
-							<a href="#">Community Info</a>
-							<ul>
-								<li><a href="/news/">Recent News</a></li>
-								<li><a href="/communityinfo/">Membership</a></li>
-								<li><a href="http://www.aacounty.org/departments/fire-department/">Anne Arundel Fire Dept.</a></li>
-								<li><a href="http://www.aacounty.org/departments/police-department/">Police</a></li>
-								<li><a href="https://www.aacps.org/Page/4148">Broadneck Elementary</a></li>
-								<li><a href="https://www.aacps.org/Page/3843">Magothy River MS</a></li>
-								<li><a href="http://broadneck.org/">Broadneck High School</a></li>
-								<li><a href="https://www.redfin.com/city/21236/MD/Arnold/filter/sort=lo-distance,viewport=39.107164713085936:39.00416788691406:-76.39074024921875:-76.52806935078125,no-outline,geo-address=Shore+Acres%0C+Arnold%0C+MD">Real Estate</a></li>
-							</ul>
-						</li>
-						<li class="submenu">
-							<a href="#">Facilities</a>
-							<ul>
-								<li><a href="/facilities/info/">Info</a></li>
-								<li><a href="/facilities/sign/">Announcement Sign</a></li>
-								<li><a href="/facilities/beach/">Beach</a></li>
-								<li><a href="/facilities/boatramp/">Boat Ramp</a></li>
-								<li><a href="/facilities/clubhouse/">Clubhouse</a></li>
-								<li><a href="/facilities/recreationarea/">Recreation Area</a></li>
-							</ul>
-						</li>
-						<li>
-							<a href="/events/">Events</a>
-						</li>
-						<li>
-							<a href="/contact/">Contact</a>
-						</li>
+					<div
+						class="lqd-column col-md-10 col-md-offset-1 text-center"
+						data-custom-animations="true"
+						data-ca-options='{ "triggerHandler":"inview", "animationTarget":"all-childs", "duration":"1200", "delay":"150", "easing":"easeOutQuint", "direction":"forward", "initValues":{"translateY":60, "translateZ":-160, "rotateX":-84, "opacity":0}, "animations":{"translateY":0, "translateZ":0, "rotateX":0, "opacity":1} }'
+						style="background: rgba(147, 204, 234, 0.3); padding: 60px 0 60px 0;"
+					>
 
-						{% if request.user.is_authenticated %}
+						<h2
+							class="text-white mt-0 mb-30"
+							data-split-text="true"
+							data-split-options='{"type":"lines"}'
+							data-fittext="true"
+							data-fittext-options='{"compressor": 0.75, "maxFontSize": 60}' 
+							>Shore Acres
+						</h2>
 
-						<li class="submenu">
-							<a href="#">Members</a>
-							<ul>
-								<li><a href="/directory/">Directory</a></li>
-								<li><a href="/classifieds/">Classifieds</a></li>
-								<li><a href="/edit/">Edit My Profile</a></li>
+						<div class="row">
 
-								{% if request.user.profile.is_president or request.user.profile.is_vice_president or request.user.profile.is_secretary or request.user.profile.is_treasurer or request.user.profile.is_director %}
+							<div class="lqd-column col-md-10 col-md-offset-1 px-5">
+
+								<p class="font-size-30 lh-19 text-fade-white-07 px-md-7 mb-50" style="font-family: Josefin Slab; font-size: 30px; line-height: 1.9;">A community beside the Magothy River in Arnold, Maryland</p>
 								
-									<li class="submenu">
-										<a href="#">ADMIN</a>
-										<ul>
-											<li><a href="/addnews/">Create News</a></li>
-											<li><a href="/events/create/">Create Event</a></li>
-											<li><a href="/editpositions/">Edit Positions</a></li>
-											<li><a href="/emailblast/">Email Blast</a></li>
-										</ul>
-									</li>
-									
-								{% endif %}
 
-							</ul>
-						</li>
-						<li><a href="/logout/" class="button special">Log Out</a></li>
+								<a href="https://www.redfin.com/city/21236/MD/Arnold/filter/sort=lo-distance,viewport=39.107164713085936:39.00416788691406:-76.39074024921875:-76.52806935078125,no-outline,geo-address=Shore+Acres%0C+Arnold%0C+MD" target="_blank" class="btn btn-solid text-uppercase btn-md round border-thin font-size-13 text-uppercase ltr-sp-15 px-3 lh-175 py-1 mb-2">
+									<span>
+										<span class="btn-txt">Real Estate</span>
+									</span>
+								</a>
+								<a href="/about/" class="btn btn-bordered text-uppercase btn-md round border-thin btn-icon-left btn-white-fade-border font-size-13 text-uppercase ltr-sp-15 px-3 lh-175 py-1 mb-2">
+									<span>
+										<span class="btn-txt">About The SAIA</span>
+										<span class="btn-icon">
+											<i class="fa fa-play"></i>
+										</span>
+									</span>
+								</a>
+
+							</div><!-- /.lqd-column col-md-10 col-md-offset-1 -->
+
+						</div><!-- /.row -->
+
+					</div><!-- /.col-md-8 col-md-offset-2 -->
+				</div><!-- /.row -->
+
+		</div><!-- /.container -->
+		
+	</section>
+
+{% if events %}
+	<section class="vc_row pt-100 pb-80">
+		<div class="container">
+			
+			<div class="row">
+				
+				<div class="lqd-column col-md-6 col-md-offset-3">
+					
+					<header
+						class="fancy-title mb-60 text-center"
+						data-custom-animations="true"
+						data-ca-options='{"triggerHandler":"inview","animationTarget":"all-childs","duration":"1200","delay":"150","easing":"easeOutQuint","direction":"forward","initValues":{"translateY":57,"opacity":0},"animations":{"translateY":0,"opacity":1}}'
+						>
+						<h2>Upcoming Events</h2>
+						<p class="font-size-18 lh-16 px-6">Don't miss out on these great upcoming events!<br><a href="/events/">View the whole calendar here.</a></p>
+					</header><!-- /.fancy-title -->
+					
+				</div><!-- /.col-md-6 col-md-offset-3 -->
+				
+			</div><!-- /.row -->
+			
+			<div
+				class="row"
+				data-custom-animations="true"
+				data-ca-options='{"triggerHandler":"inview","animationTarget":".lqd-column","duration":"1200","delay":"150","easing":"easeOutQuint","initValues":{"translateX":-34,"opacity":0},"animations":{"translateX":0,"opacity":1}}'
+				>
+				
+				{% for e in events %}
+					<div class="lqd-column col-md-3 col-sm-6">
 						
-						{% else %}
+						<div class="fancy-box fancy-box-classic">
+							<div class="cb-img-container mb-4">
+								<figure class="fancy-box-image" style="background-image: url('/{{ e.img }}'); background-size: cover; min-height: 290px; background-position: center;">
+									&nbsp;
+								</figure>
+							</div><!-- /.cb-img-container -->
+							<div class="fancy-box-contents">
+								<div class="fancy-box-header">
+									<button class="btn btn-naked font-size-14">
+										<span>
+											<span class="btn-icon"><i class="fa fa-calendar"></i></span>
+											<span class="btn-txt" style="padding-left: 15px;">{{ e.date }}</span>
+										</span>
+									</button>
+									<h3>{{ e.title }}</h3>
+									<p>{{ e.description }}</p>
+								</div><!-- /.fancy-box-header -->
+							</div><!-- /.fancy-box-content -->
+						</div><!-- /.fancy-box -->
 						
-							<li><a href="/login/" class="button special">Login</a></li>
+					</div><!-- /.col-md-3 col-sm-6 -->
+				{% endfor %}
 
-						{% endif %}
+			</div><!-- /.row -->
+			
+		</div><!-- /.container -->
+	</section>
+{% endif %}
+	
+{% if news %}
+	<section class="vc_row pt-80 pb-80" id="blog">
+		<div class="container">
+			<div class="row">
 
-					</ul>
-				</nav>
-			</header>
+				<div class="lqd-column col-md-8 col-md-offset-2">
 
-			<!-- Banner -->
-			<section id="banner" style="height:100vh;min-height:600px;">
-				<div class="inner">
-					<header>
-						<h2>Welcome</h2>
+					<header
+						class="fancy-title mb-60 text-center"
+						data-custom-animations="true"
+						data-ca-options='{"triggerHandler":"inview","animationTarget":"all-childs","duration":"1200","delay":"150","easing":"easeOutQuint","direction":"forward","initValues":{"translateY":57,"opacity":0},"animations":{"translateY":0,"opacity":1}}'
+						>
+						<h2>Latest News</h2>
+						
 					</header>
 
-					{% if request.user.is_authenticated %}
-					
-					<p>Welcome back, 
-					
-						{% if request.user.profile.first_name %}
-					
-							{{ request.user.profile.first_name }}
-					
-						{% else %}
-					
-							{{ request.user.username }}
-					
-						{% endif %}!
-					
-					{% else %}
-					
-						<p>Welcome to our Shore Acres 
-						</br>Community and thank you 
-						</br>for visiting our Improvement 
-						</br>Association website.</p>
-					
-					{% endif %}
-					
-					<footer>
-						<ul class="buttons vertical">
-							<li><a href="#main" class="button fit scrolly">Read More Below</a></li>
-						</ul>
-					</footer>
-				</div>
-			</section>
+				</div><!-- /.col-md-8 col-md-offset-2 -->
 
-			<!-- Main -->
-			<article id="main">
+				<div class="row">
 
-				<header class="special container">
-					<span class="icon fa-anchor"></span>
-					<h2>Recent News</h2>
-				</header>
+					<div class="lqd-column col-md-12">
 
-				<!-- Two -->
-			</br>
-				<section class="wrapper style1 container special">
-					<div class="row">
-					
-						{% for n in news %}
-					
-							<div class="3u 12u(narrower)">
-                                <section class="profile">
+						<div class="liquid-blog-grid liquid-blog-style-square row mx-0" data-liquid-masonry="true">
 
-                                    <ul class="dir_info">
+							{% for n in news %}
+								<div class="lqd-column col-md-4 masonry-item px-0">
 
-                                        <li>
-                                            <span class="icon fa-calendar-o"></span>
-                                                {{ n.date|date }} {{ n.date|time }}
-                                        </li>
+									<article class="liquid-lp liquid-lp liquid-blog-item liquid-blog-item-gray liquid-blog-scheme-dark">
 
-                                        <li>
-                                            <span class="icon fa-at"></span>
+										<div class="liquid-blog-item-inner">
+										
+											<header class="liquid-lp-header">
+												<h2 class="liquid-lp-title font-weight-normal mb-1">
+													<a href="#">{{ n.title }}</a>
+												</h2>
+											</header>
 
-                                                {% if n.poster.directory_visible and request.user.is_authenticated %}
-                                                    <a href="/directory/#{{ n.poster.user.username }}">
-                                                {% endif %}
-                                                    {{ n.poster.user.username }}
-                                                {% if n.poster.directory_visible and request.user.is_authenticated %}
-                                                    </a>
-                                                {% endif %}</br>
+											<div class="liquid-lp-excerpt">
+												<p>{{ n.body }}</p>
+											</div><!-- /.latest-post-excerptc -->
 
-                                            </span>
-                                        </li>
+											<footer class="liquid-lp-footer">
+												<div class="ld-post-author">
+													<div class="ld-author-info">
+														<time class="liquid-lp-date text-uppercase ltr-sp-1 my-0" datetime="2019-09-18">{{ n.date }}</time>
+														<h5 class="text-uppercase ltr-sp-2 my-0">{{ n.author }}</h5>
+													</div><!-- /.ld-author-info -->
+												</div>
+											</footer>
 
-                                        <li>
-                                            <span class="icon fa-info-circle"></span>
+										</div><!-- /.liquid-blog-item-inner -->
 
-                                                {{ n.news }}</br>
-                                        </li>
+									</article>
 
-                                </ul>
-                                </section>
-							</div>
-
-						{% endfor %}
-
-					</div>
-
-					<div class="major">
-						<ul class="buttons">
-							<li><a href="/news/" class="button">Older News</a></li>
-						</ul>
-					</div>
-				</section>
-
-				<!-- Three -->
-				<section class="wrapper style3 container special">
-					<header class="major">
-						<h2>Upcoming Community Events</h2>
-					</header>
-					<div class="row">
-
-						{% if events %}
-						
-							{% for e in events %}
-						
-								<div class="3u 12u(narrower)">
-                                    <section class="profile">
-                                        <div class="img" style="background-image: url('{{ e.img.url }}');">
-                                        </div>
-                                        <ul class="dir_info">
-
-                                            <li>
-                                                <span class="icon fa-calendar-o"></span>
-                                                    {{ e.date|date }} {{ e.date|time }}
-                                            </li>
-
-                                            <li>
-                                                <span class="icon fa-tag"></span>
-
-                                                    {{ e.title|title }}</br>
-
-                                                </span>
-                                            </li>
-
-                                            <li>
-                                                <span class="icon fa-info-circle"></span>
-
-                                                    {{ e.description }}</br>
-                                            </li>
-
-                                    </ul>
-                                    </section>
-
-								</div>
-
+								</div><!-- /.col-md-4 -->
 							{% endfor %}
-						
-						{% else %}
-						
-								<div class="12u 12u(narrower)">
-									<section>
-										<a href="#" class="image featured"><div class="img" style='background-image:url("{% static 'images/events.jpg' %}");'></div></a>
-										<header>
-											<h3>No Upcoming Events</h3>
-										</header>
-										<p>
-											Check back soon!
-										</p>
-									</section>
-								</div>
-
-						{% endif %}
-
-					</div>
-					
-					<div class="major">
-						<ul class="buttons">
-							<li><a href="/events/" class="button">See More</a></li>
-						</ul>
-					</div>
-					
-					<div class="row">
-						<div class="12u 12u(narrower)" style="padding-top:80px;">
-							<h2>Have something going on?</h2>
-							<p style='text-indent:0 !important; text-align:center; margin:1em;'>If you have an event the community would be interested in, submit it here to be included in the community calendar!</p>
-							<form action="/submitevent/" method="post">
 							
-								{% csrf_token %}
-							
-								<div class="row 50%">
-									<div class="6u 12u(mobile)">
-										<input type="text" name="name" placeholder="Name" required/>
-									</div>
-									<div class="6u 12u(mobile)">
-										<input type="text" name="email" placeholder="Email" requried/>
-									</div>
-								</div>
-								<div class="row 50%">
-									<div class="12u">
-										<input type="text" name="subject" placeholder="Subject" required/>
-									</div>
-								</div>
-								<div class="row 50%">
-									<div class="12u">
-										<textarea name="message" placeholder="Message" rows="7" required></textarea>
-									</div>
-								</div>
-								<div class="row">
-									<div class="12u">
-										<ul class="buttons">
-											<li><input type="submit" class="special" value="Send Message" /></li>
-										</ul>
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
-				</section>
-			</article>
+						</div><!-- /.row -->
 
-			<!-- Email List Sign Up -->
-			<section id="cta">
+					</div><!-- /.col-md-12 -->
 
-			{% if request.user.is_authenticated == False or request.user.profile.email_list == False %}
-				<header>
-					<h2>Sign up for our e-mail list!</h2>
-					<p>Stay up to date with all of the Shore Acres info. Enter your email address below and you will be added to our e-mail update list.</p>
-				</header>
+				</div><!-- /.row -->
+				
+			</div><!-- /.row -->
+		</div><!-- /.container -->
+	</section>
+{% endif %}
 
-				<footer>
-
-					<form action="/emailsignup/" method='post'>
-						{% csrf_token %}
+	<section class="vc_row pt-10 pb-70">
+					
+		<div class="container-fluid px-0">
+			
+			<div class="row mx-0">
+				
+				<div class="lqd-column col-md-12">
+					
+					<div class="liquid-portfolio-list">
 						
-						<div class="row 50%">
-							<div class="6u 12u(mobile)" style="float:inherit; margin: auto;">
-								<input type="text" id="email" name="email" placeholder="Email" style="background:rgba(255,255,255,.2);" required/>
-							</div>
-						</div>
-						<div class="row 50%" style="padding-top: 20px;">
-							<div class="12u">
-								<ul class="buttons">
-									<li><input type="submit" class="special" value="Sign Up!" /></li>
-								</ul>
-							</div>
-						</div>
-
-					</form>
-
-				</footer>
-				{% endif %}
-
-			</section>
-
-			<!-- Footer -->
-			<footer id="footer">
-
-				<ul class="icons">
-					<li><a href="#" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
-				</ul>
-
-				<ul class="copyright">
-					<li>&copy; Shore Acres Improvement Association</li><li>Website Donated By: <a href="http://www.codecaveinc.com">Code Cave Inc.</a></li>
-				</ul>
-
-			</footer>
-
-		</div>
-
-		<!-- Scripts -->
-			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
-			<script src="{% static 'assets/js/jquery.dropotron.min.js' %}"></script>
-			<script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
-			<script src="{% static 'assets/js/jquery.scrollgress.min.js' %}"></script>
-			<script src="{% static 'assets/js/skel.min.js' %}"></script>
-			<script src="{% static 'assets/js/util.js' %}"></script>
-			<!--[if lte IE 8]><script src="{% static 'assets/js/ie/respond.min.js' %}"></script><![endif]-->
-			<script src="{% static 'assets/js/main.js' %}"></script>
-
-	</body>
-</html>
+						<div
+							class="row liquid-portfolio-list-row"
+							data-liquid-masonry="true"
+							data-masonry-options='{ "filtersID": "#portfolio-1" }'
+							data-custom-animations="true"
+							data-ca-options='{"triggerHandler":"inview","animationTarget":".ld-pf-item","animateTargetsWhenVisible":"true","duration":"1200","delay":"150","easing":"easeOutQuint","initValues":{"translateY":37,"opacity":0},"animations":{"translateY":0,"opacity":1}}'>
+							
+							<div class="lqd-column col-lg-3 col-sm-6 masonry-item px-0 architecture">
+								
+								<div class="ld-pf-item ld-pf-light pf-details-inside pf-details-full pf-details-h-mid pf-details-v-end pf-hover-masktext mb-0">
+									
+									<div class="ld-pf-inner">
+										
+										<div class="ld-pf-image" data-blur="true" data-blur-options='{ "hoverTarget": ".ld-pf-item", "hoverTargetRelation": "closest" }'>
+											<figure style="background-image: url('{% static 'assets/img/1.jpg' %}');">
+												<img src="{% static 'assets/img/1.jpg' %}" alt="Portfolio Image">
+											</figure>
+										</div><!-- /.ld-pf-image -->
+										
+										<div class="ld-pf-bg"></div><!-- /.ld-pf-bg -->
+										
+										<div class="ld-pf-details" data-custom-animations="true" data-ca-options='{ "triggerHandler": "mouseenter", "triggerTarget": ".ld-pf-item", "triggerRelation": "closest", "offTriggerHandler": "mouseleave", "animationTarget": ".split-inner", "startDelay": 80, "duration": 650, "delay": 150, "initValues": { "translateY": "150%" }, "animations": { "translateY": "0", "rotateX": 0 } }'>
+											<div class="ld-pf-details-inner">
+												<h3 class="ld-pf-title h4 text-uppercase" data-split-text="true" data-split-options='{ "type": "lines" }'>Fundraiser</h3>
+												<div class="ld-pf-category size-sm">
+													<a class="text-uppercase ltr-sp-1" data-split-text="true" data-split-options='{ "type": "lines" }'>Stemless Wine Glasses</a>
+												</div><!-- /.ld-pf-category -->
+											</div><!-- /.ld-pf-details-inner -->
+										</div><!-- /.ld-pf-details -->
+										
+										
+										
+									</div><!-- /.ld-pf-inner -->
+									
+								</div><!-- /.ld-pf-item -->
+								
+							</div><!-- /.col-lg-3 col-md-6 -->
+							
+							<div class="lqd-column col-lg-3 col-sm-6 masonry-item px-0 brand interior">
+								
+								<div class="ld-pf-item ld-pf-light pf-details-inside pf-details-full pf-details-h-mid pf-details-v-end pf-hover-masktext mb-0">
+									
+									<div class="ld-pf-inner">
+										
+										<div class="ld-pf-image" data-blur="true" data-blur-options='{ "hoverTarget": ".ld-pf-item", "hoverTargetRelation": "closest" }'>
+											<figure style="background-image: url('{% static 'assets/img/2.jpg' %}');">
+												<img src="{% static 'assets/img/2.jpg' %}" alt="Portfolio Image">
+											</figure>
+										</div><!-- /.ld-pf-image -->
+										
+										<div class="ld-pf-bg"></div><!-- /.ld-pf-bg -->
+										
+										<div class="ld-pf-details" data-custom-animations="true" data-ca-options='{ "triggerHandler": "mouseenter", "triggerTarget": ".ld-pf-item", "triggerRelation": "closest", "offTriggerHandler": "mouseleave", "animationTarget": ".split-inner", "startDelay": 80, "duration": 650, "delay": 150, "initValues": { "translateY": "150%" }, "animations": { "translateY": "0", "rotateX": 0 } }'>
+											<div class="ld-pf-details-inner">
+												<h3 class="ld-pf-title h4 text-uppercase" data-split-text="true" data-split-options='{ "type": "lines" }'>4th of July</h3>
+												<div class="ld-pf-category size-sm">
+													<a href="#" class="text-uppercase ltr-sp-1" data-split-text="true" data-split-options='{ "type": "lines" }'>Before the Parade</a>
+												</div><!-- /.ld-pf-category -->
+											</div><!-- /.ld-pf-details-inner -->
+										</div><!-- /.ld-pf-details -->
+										
+										
+									</div><!-- /.ld-pf-inner -->
+									
+								</div><!-- /.ld-pf-item -->
+								
+							</div><!-- /.col-lg-3 col-md-6 -->
+							
+							<div class="lqd-column col-lg-3 col-sm-6 masonry-item px-0 strategy urban">
+								
+								<div class="ld-pf-item ld-pf-light pf-details-inside pf-details-full pf-details-h-mid pf-details-v-end pf-hover-masktext mb-0">
+									
+									<div class="ld-pf-inner">
+										
+										<div class="ld-pf-image" data-blur="true" data-blur-options='{ "hoverTarget": ".ld-pf-item", "hoverTargetRelation": "closest" }'>
+											<figure style="background-image: url('{% static 'assets/img/3.jpg' %}');">
+												<img src="{% static 'assets/img/3.jpg' %}" alt="Portfolio Image">
+											</figure>
+										</div><!-- /.ld-pf-image -->
+										
+										<div class="ld-pf-bg"></div><!-- /.ld-pf-bg -->
+										
+										<div class="ld-pf-details" data-custom-animations="true" data-ca-options='{ "triggerHandler": "mouseenter", "triggerTarget": ".ld-pf-item", "triggerRelation": "closest", "offTriggerHandler": "mouseleave", "animationTarget": ".split-inner", "startDelay": 80, "duration": 650, "delay": 150, "initValues": { "translateY": "150%" }, "animations": { "translateY": "0", "rotateX": 0 } }'>
+											<div class="ld-pf-details-inner">
+												<h3 class="ld-pf-title h4 text-uppercase" data-split-text="true" data-split-options='{ "type": "lines" }'>Clubhouse</h3>
+												<div class="ld-pf-category size-sm">
+													<a href="#" class="text-uppercase ltr-sp-1" data-split-text="true" data-split-options='{ "type": "lines" }'>Home to Many events</a>
+												</div><!-- /.ld-pf-category -->
+											</div><!-- /.ld-pf-details-inner -->
+										</div><!-- /.ld-pf-details -->
+										
+										
+									</div><!-- /.ld-pf-inner -->
+									
+								</div><!-- /.ld-pf-item -->
+								
+							</div><!-- /.col-lg-3 col-md-6 -->
+							
+							<div class="lqd-column col-lg-3 col-sm-6 masonry-item px-0 architecture urban">
+								
+								<div class="ld-pf-item ld-pf-light pf-details-inside pf-details-full pf-details-h-mid pf-details-v-end pf-hover-masktext mb-0">
+									
+									<div class="ld-pf-inner">
+										
+										<div class="ld-pf-image" data-blur="true" data-blur-options='{ "hoverTarget": ".ld-pf-item", "hoverTargetRelation": "closest" }'>
+											<figure style="background-image: url('{% static 'assets/img/4.jpg' %}');">
+												<img src="{% static 'assets/img/4.jpg' %}" alt="Portfolio Image">
+											</figure>
+										</div><!-- /.ld-pf-image -->
+										
+										<div class="ld-pf-bg"></div><!-- /.ld-pf-bg -->
+										
+										<div class="ld-pf-details" data-custom-animations="true" data-ca-options='{ "triggerHandler": "mouseenter", "triggerTarget": ".ld-pf-item", "triggerRelation": "closest", "offTriggerHandler": "mouseleave", "animationTarget": ".split-inner", "startDelay": 80, "duration": 650, "delay": 150, "initValues": { "translateY": "150%" }, "animations": { "translateY": "0", "rotateX": 0 } }'>
+											<div class="ld-pf-details-inner">
+												<h3 class="ld-pf-title h4 text-uppercase" data-split-text="true" data-split-options='{ "type": "lines" }'>Meeting</h3>
+												<div class="ld-pf-category size-sm">
+													<a href="#" class="text-uppercase ltr-sp-1" data-split-text="true" data-split-options='{ "type": "lines" }'>Discussing Community Issues</a>
+												</div><!-- /.ld-pf-category -->
+											</div><!-- /.ld-pf-details-inner -->
+										</div><!-- /.ld-pf-details -->
+										
+										
+									</div><!-- /.ld-pf-inner -->
+									
+								</div><!-- /.ld-pf-item -->
+								
+							</div><!-- /.col-lg-3 col-md-6 -->
+							
+							<div class="lqd-column col-lg-3 col-sm-6 masonry-item px-0 urban interior">
+								
+								<div class="ld-pf-item ld-pf-light pf-details-inside pf-details-full pf-details-h-mid pf-details-v-end pf-hover-masktext mb-0">
+									
+									<div class="ld-pf-inner">
+										
+										<div class="ld-pf-image" data-blur="true" data-blur-options='{ "hoverTarget": ".ld-pf-item", "hoverTargetRelation": "closest" }'>
+											<figure style="background-image: url('{% static 'assets/img/5.jpg' %}');">
+												<img src="{% static 'assets/img/5.jpg' %}" alt="Portfolio Image">
+											</figure>
+										</div><!-- /.ld-pf-image -->
+										
+										<div class="ld-pf-bg"></div><!-- /.ld-pf-bg -->
+										
+										<div class="ld-pf-details" data-custom-animations="true" data-ca-options='{ "triggerHandler": "mouseenter", "triggerTarget": ".ld-pf-item", "triggerRelation": "closest", "offTriggerHandler": "mouseleave", "animationTarget": ".split-inner", "startDelay": 80, "duration": 650, "delay": 150, "initValues": { "translateY": "150%" }, "animations": { "translateY": "0", "rotateX": 0 } }'>
+											<div class="ld-pf-details-inner">
+												<h3 class="ld-pf-title h4 text-uppercase" data-split-text="true" data-split-options='{ "type": "lines" }'>The Beach</h3>
+												<div class="ld-pf-category size-sm">
+													<a href="#" class="text-uppercase ltr-sp-1" data-split-text="true" data-split-options='{ "type": "lines" }'>Enjoy a beautiful sunset</a>
+												</div><!-- /.ld-pf-category -->
+											</div><!-- /.ld-pf-details-inner -->
+										</div><!-- /.ld-pf-details -->
+										
+										
+									</div><!-- /.ld-pf-inner -->
+									
+								</div><!-- /.ld-pf-item -->
+								
+							</div><!-- /.col-lg-3 col-md-6 -->
+							
+							<div class="lqd-column col-lg-3 col-sm-6 masonry-item px-0 interior architecture">
+								
+								<div class="ld-pf-item ld-pf-light pf-details-inside pf-details-full pf-details-h-mid pf-details-v-end pf-hover-masktext mb-0">
+									
+									<div class="ld-pf-inner">
+										
+										<div class="ld-pf-image" data-blur="true" data-blur-options='{ "hoverTarget": ".ld-pf-item", "hoverTargetRelation": "closest" }'>
+											<figure style="background-image: url('{% static 'assets/img/6.jpg' %}');">
+												<img src="{% static 'assets/img/6.jpg' %}" alt="Portfolio Image">
+											</figure>
+										</div><!-- /.ld-pf-image -->
+										
+										<div class="ld-pf-bg"></div><!-- /.ld-pf-bg -->
+										
+										<div class="ld-pf-details" data-custom-animations="true" data-ca-options='{ "triggerHandler": "mouseenter", "triggerTarget": ".ld-pf-item", "triggerRelation": "closest", "offTriggerHandler": "mouseleave", "animationTarget": ".split-inner", "startDelay": 80, "duration": 650, "delay": 150, "initValues": { "translateY": "150%" }, "animations": { "translateY": "0", "rotateX": 0 } }'>
+											<div class="ld-pf-details-inner">
+												<h3 class="ld-pf-title h4 text-uppercase" data-split-text="true" data-split-options='{ "type": "lines" }'>Yoga</h3>
+												<div class="ld-pf-category size-sm">
+													<a href="#" class="text-uppercase ltr-sp-1" data-split-text="true" data-split-options='{ "type": "lines" }'>On paddleboards in the cove</a>
+												</div><!-- /.ld-pf-category -->
+											</div><!-- /.ld-pf-details-inner -->
+										</div><!-- /.ld-pf-details -->
+										
+										
+									</div><!-- /.ld-pf-inner -->
+									
+								</div><!-- /.ld-pf-item -->
+								
+							</div><!-- /.col-lg-3 col-md-6 -->
+							
+							<div class="lqd-column col-lg-3 col-sm-6 masonry-item px-0 interior architecture">
+								
+								<div class="ld-pf-item ld-pf-light pf-details-inside pf-details-full pf-details-h-mid pf-details-v-end pf-hover-masktext mb-0">
+									
+									<div class="ld-pf-inner">
+										
+										<div class="ld-pf-image" data-blur="true" data-blur-options='{ "hoverTarget": ".ld-pf-item", "hoverTargetRelation": "closest" }'>
+											<figure style="background-image: url('{% static 'assets/img/7.jpg' %}');">
+												<img src="{% static 'assets/img/7.jpg' %}" alt="Portfolio Image">
+											</figure>
+										</div><!-- /.ld-pf-image -->
+										
+										<div class="ld-pf-bg"></div><!-- /.ld-pf-bg -->
+										
+										<div class="ld-pf-details" data-custom-animations="true" data-ca-options='{ "triggerHandler": "mouseenter", "triggerTarget": ".ld-pf-item", "triggerRelation": "closest", "offTriggerHandler": "mouseleave", "animationTarget": ".split-inner", "startDelay": 80, "duration": 650, "delay": 150, "initValues": { "translateY": "150%" }, "animations": { "translateY": "0", "rotateX": 0 } }'>
+											<div class="ld-pf-details-inner">
+												<h3 class="ld-pf-title h4 text-uppercase" data-split-text="true" data-split-options='{ "type": "lines" }'>The Beach</h3>
+												<div class="ld-pf-category size-sm">
+													<a href="#" class="text-uppercase ltr-sp-1" data-split-text="true" data-split-options='{ "type": "lines" }'>Don't Forget Sunscreen</a>
+												</div><!-- /.ld-pf-category -->
+											</div><!-- /.ld-pf-details-inner -->
+										</div><!-- /.ld-pf-details -->
+										
+										
+									</div><!-- /.ld-pf-inner -->
+									
+								</div><!-- /.ld-pf-item -->
+								
+							</div><!-- /.col-lg-3 col-md-6 -->
+							
+							<div class="lqd-column col-lg-3 col-sm-6 masonry-item px-0 interior architecture">
+								
+								<div class="ld-pf-item ld-pf-light pf-details-inside pf-details-full pf-details-h-mid pf-details-v-end pf-hover-masktext mb-0">
+									
+									<div class="ld-pf-inner">
+										
+										<div class="ld-pf-image" data-blur="true" data-blur-options='{ "hoverTarget": ".ld-pf-item", "hoverTargetRelation": "closest" }'>
+											<figure style="background-image: url('{% static 'assets/img/8.jpg' %}');">
+												<img src="{% static 'assets/img/8.jpg' %}" alt="Portfolio Image">
+											</figure>
+										</div><!-- /.ld-pf-image -->
+										
+										<div class="ld-pf-bg"></div><!-- /.ld-pf-bg -->
+										
+										<div class="ld-pf-details" data-custom-animations="true" data-ca-options='{ "triggerHandler": "mouseenter", "triggerTarget": ".ld-pf-item", "triggerRelation": "closest", "offTriggerHandler": "mouseleave", "animationTarget": ".split-inner", "startDelay": 80, "duration": 650, "delay": 150, "initValues": { "translateY": "150%" }, "animations": { "translateY": "0", "rotateX": 0 } }'>
+											<div class="ld-pf-details-inner">
+												<h3 class="ld-pf-title h4 text-uppercase" data-split-text="true" data-split-options='{ "type": "lines" }'>Fall Clean Up</h3>
+												<div class="ld-pf-category size-sm">
+													<a href="#" class="text-uppercase ltr-sp-1" data-split-text="true" data-split-options='{ "type": "lines" }'>Keeping the community beautiful</a>
+												</div><!-- /.ld-pf-category -->
+											</div><!-- /.ld-pf-details-inner -->
+										</div><!-- /.ld-pf-details -->
+										
+										
+									</div><!-- /.ld-pf-inner -->
+									
+								</div><!-- /.ld-pf-item -->
+								
+							</div><!-- /.col-lg-3 col-md-6 -->
+							
+						</div><!-- /.row liquid-portfolio-list-row -->
+						
+					</div><!-- /.liquid-portfolio-list -->
+					
+				</div><!-- /.col-md-12 -->
+				
+			</div><!-- /.row mx-0 -->
+			
+		</div><!-- /.container-fluid px-0 -->
+		
+	</section>
+	
+</main><!-- /#content.content -->
+{% endblock %}

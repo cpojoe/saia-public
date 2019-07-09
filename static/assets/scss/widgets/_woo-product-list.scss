@@ -1,0 +1,33 @@
+.woocommerce {
+
+	ul.cart_list,
+	ul.product_list_widget {
+		
+		li {
+			padding: 0;
+			margin-bottom: 20px;
+			font-size: 15px;
+			line-height: em(27, 15);
+			font-weight: 500;
+
+			img {
+				float: left;
+				width: 77px;
+				margin-left: 0;
+				margin-right: 17px;
+			}
+			a {
+				font-weight: inherit;
+			}
+			.amount {
+				color: var(--color-primary);
+			}
+			.star-rating {
+				font-size: 11px;
+				margin-top: 0.25em;
+				margin-bottom: 0.25em;
+				color: var(--color-primary);
+			}
+		}
+	}
+}

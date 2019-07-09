@@ -1,0 +1,53 @@
+.woocommerce {
+	
+	form.woocommerce-checkout {
+
+		#payment,
+		table.woocommerce-checkout-review-order-table,
+		h3.order_review_heading {
+			background-color: #272938;
+		}
+		table.woocommerce-checkout-review-order-table {
+			color: #fff;
+		}
+		h3.order_review_heading {
+
+			&:before {
+				background: linear-gradient(-45deg, #272938 33.333%, transparent 33.333%, transparent 66.667%, #272938 66.667%), linear-gradient(45deg, #272938 33.333%, transparent 33.333%, transparent 66.667%, #272938 66.667%);
+				background-size: 12px 40px;
+				background-position: 0 -20px;
+			}
+		}
+		.form-row {
+			
+			.select2-selection--single,
+			.input-text,
+			textarea {
+				border-color: rgba(#fff, 0.15);
+				color: #fff;
+			}
+		}
+		.select2-selection--single {
+
+			.select2-selection__rendered {
+				color: #fff;
+			}
+		}
+		
+		#payment {
+
+			div.payment_box {
+				color: #fff;
+			}
+			ul.wc_payment_methods {
+
+				li {
+					
+					label {
+						color: #fff;
+					}
+				}
+			}
+		}
+	}
+}

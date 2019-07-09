@@ -1,0 +1,382 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<main id="content" class="content py-0">
+  <div
+    class="blog-single-cover scheme-light"
+    data-fullheight="true"
+    data-inview="true"
+    data-inview-options='{ "onImagesLoaded": true }'
+    style="background: transparent;"
+  >
+    <figure
+      class="blog-single-media"
+      data-responsive-bg="true"
+      data-parallax="true"
+      data-parallax-options='{ "parallaxBG": true, "triggerHook": "onLeave" }'
+      data-parallax-from='{ "translateY": "0%" }'
+      data-parallax-to='{ "translateY": "20%" }'
+    >
+      <img
+        src="{% static '/assets/bg/clubhouse.jpg' %}"
+        style="max-height: 960px; width: auto;"
+      />
+    </figure>
+
+    <div
+      class="blog-single-details"
+      style="width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <header
+              class="entry-header blog-single-header"
+              data-parallax="true"
+              data-parallax-to='{ "opacity": 0, "translateY": "30%" }'
+              data-parallax-options='{ "triggerHook": "0.3" }'
+            >
+              <h1
+                class="blog-single-title entry-title h2"
+                data-split-text="true"
+                data-split-options='{ "type": "lines" }'
+              >
+                The Shore Acres Club House
+              </h1>
+            </header>
+            <!-- /.blog-single-header -->
+          </div>
+          <!-- /.col-md-6 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.blog-single-details -->
+  </div>
+  <!-- /.blog-single-cover -->
+
+  <article class="blog-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="blog-single-content entry-content pull-up expanded">
+            <h3>Overview</h3>
+
+            <p>
+              The Shore Acres Clubhouse is one of the most important assets to
+              our community. The facility plays host to most of our board and
+              general meetings as well as many gatherings, social and community
+              improvement events. In addition to being a great event space
+              complete with a bar, two seperate bathrooms, a seperate food prep
+              space, and 2000+ square feet of open floor, the clubhouse features
+              plenty of parking, a playground, basketball court, and open
+              greenspace. The clubhouse also serves as an important fundraiser
+              for the community and is
+              <b
+                >available for private rentals to imporvement association
+                members, nonmembers, and essentially anyone looking for event
+                space</b
+              >.
+            </p>
+
+            <h3>Rental</h3>
+
+            <p>
+              For information regarding rental of the clubhouse or to inquire
+              about date availability, please
+              <a href="#contact">contact us here</a> or feel free to reach out
+              to Will Brattain directly at
+              <a href="mailto:will@shombo.com">will@shombo.com</a>, or call /
+              text <a href="tel://+19722004488">(972) 200-4488</a>. The current
+              rental agreement is available
+              <a
+                href="{% static '/files/Shore_Acres_Clubhouse_Rental_Agreement.pdf' %}"
+                >here</a
+              >.
+            </p>
+
+            <p>
+              If you don't need a whole clubhouse for your next event, we do
+              offer rentals for tables, chairs, and a 10' by 10' tent canopy.
+              Please <a href="#contact">contact us</a> for more information!
+            </p>
+
+            <h3>Current Pricing</h3>
+            <div class="row">
+              <div class="lqd-column col-lg-6 col-md-12">
+                <div class="pricing-table pricing-table-default">
+                  <div class="pricing-table-header">
+                    <h5>SAIA Members <small>&nbsp;</small></h5>
+                  </div>
+                  <!-- /.pricing-table-head -->
+
+                  <div class="pricing-table-body">
+                    <ul>
+                      <li>
+                        Special Events and Parties*<strong
+                          >$150 + $50 deposit</strong
+                        >
+                      </li>
+                      <li>
+                        Non-Profit Fundraisers
+                        <strong>$50 + $50 deposit</strong>
+                      </li>
+                      <li>
+                        Community Orientated Functions
+                        <strong>$75 + $50 deposit</strong>
+                      </li>
+                      <li>
+                        Community Meetings <strong>FREE + $50 deposit</strong>
+                      </li>
+                      <li>Grounds Only <strong>FREE + $50 deposit</strong></li>
+                      <li>Parking Lot <strong>FREE + $50 deposit</strong></li>
+                      <li>
+                        Tables / Chairs
+                        <strong><a href="#contact">Contact Us!</a></strong>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- /.pricing-table-body -->
+
+                  <div class="pricing-table-footer">
+                    <a
+                      href="#contact"
+                      class="btn btn-bordered btn-bordered-gradient border-thick text-uppercase"
+                    >
+                      <span>
+                        <span class="btn-txt">Book Now!</span>
+                        <span
+                          class="btn-gradient-bg btn-gradient-bg-hover bg-gradient-primary-lr"
+                        ></span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          xml:space="preserve"
+                          class="btn-gradient-border"
+                          width="100%"
+                          height="100%"
+                        >
+                          <defs>
+                            <linearGradient
+                              id="btn-grad-1"
+                              x1="0%"
+                              y1="0%"
+                              x2="100%"
+                              y2="0%"
+                            >
+                              <stop offset="0%" />
+                              <stop offset="100%" />
+                            </linearGradient>
+                          </defs>
+                          <rect
+                            x="0"
+                            y="0"
+                            rx="0"
+                            ry="0"
+                            width="100%"
+                            height="100%"
+                            stroke="url(#btn-grad-1)"
+                          />
+                        </svg>
+                      </span>
+                    </a>
+                  </div>
+                  <!-- /.pricing-table-footer -->
+                </div>
+                <!-- /.pricing-table -->
+              </div>
+              <!-- /.col-lg-4 col-md-12 -->
+
+              <div class="lqd-column col-lg-6 col-md-12">
+                <div class="pricing-table pricing-table-default">
+                  <div class="pricing-table-header">
+                    <h5>Non-Members <small>Including non-residents</small></h5>
+                  </div>
+                  <!-- /.pricing-table-head -->
+
+                  <div class="pricing-table-body">
+                    <ul>
+                      <li>
+                        Special Events and Parties*<strong
+                          >$200 + $75 deposit</strong
+                        >
+                      </li>
+                      <li>
+                        Non-Profit Fundraisers
+                        <strong>$75 + $75 deposit</strong>
+                      </li>
+                      <li>
+                        Community Orientated Functions
+                        <strong>$75 + $75 deposit</strong>
+                      </li>
+                      <li>
+                        Community Meetings <strong>FREE + $75 deposit</strong>
+                      </li>
+                      <li>Grounds Only <strong>FREE + $75 deposit</strong></li>
+                      <li>Parking Lot <strong>N/A</strong></li>
+                      <li>Tables / Chairs <strong>N/A</strong></li>
+                    </ul>
+                  </div>
+                  <!-- /.pricing-table-body -->
+
+                  <div class="pricing-table-footer">
+                    <a
+                      href="#contact"
+                      class="btn btn-bordered btn-bordered-gradient border-thick text-uppercase"
+                    >
+                      <span>
+                        <span class="btn-txt">Book Now!</span>
+                        <span
+                          class="btn-gradient-bg btn-gradient-bg-hover bg-gradient-primary-lr"
+                        ></span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          xml:space="preserve"
+                          class="btn-gradient-border"
+                          width="100%"
+                          height="100%"
+                        >
+                          <defs>
+                            <linearGradient
+                              id="btn-grad-1"
+                              x1="0%"
+                              y1="0%"
+                              x2="100%"
+                              y2="0%"
+                            >
+                              <stop offset="0%" />
+                              <stop offset="100%" />
+                            </linearGradient>
+                          </defs>
+                          <rect
+                            x="0"
+                            y="0"
+                            rx="0"
+                            ry="0"
+                            width="100%"
+                            height="100%"
+                            stroke="url(#btn-grad-1)"
+                          />
+                        </svg>
+                      </span>
+                    </a>
+                  </div>
+                  <!-- /.pricing-table-footer -->
+                </div>
+                <!-- /.pricing-table -->
+              </div>
+              <!-- /.col-lg-4 col-md-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+              <div class="lqd-column col-md-12">
+                <div class="pricing-table pricing-table-default">
+                  <!-- /.pricing-table-head -->
+
+                  <div class="pricing-table-body">
+                    <ul>
+                      <li>
+                        * Pricing is subject to change based on nature of event.
+                      </li>
+                      <li>
+                        Negotiated rates are available for events that require
+                        short amounts of time or support civic or charitable
+                        groups. Certain rentals, at the Board’s discretion, may
+                        be allowed to use the facility for meetings without
+                        charge on a space available basis if one of the members
+                        belongs to the Association.
+                      </li>
+                      <li>
+                        50% of the agreed rental fee, the required security
+                        deposit, and a signed agreement are required in order to
+                        reserve the clubhouse for your event. The remaining
+                        balance is due before the event start time.
+                      </li>
+                      <li>
+                        <a
+                          href="{% static '/files/Shore_Acres_Clubhouse_Rental_Agreement.pdf' %}"
+                          >View the rental agreement here.</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- /.pricing-table-body -->
+
+                  <div class="pricing-table-footer">
+                    <a
+                      href="#contact"
+                      class="btn btn-bordered btn-bordered-gradient border-thick text-uppercase"
+                    >
+                      <span>
+                        <span class="btn-txt">Book Now!</span>
+                        <span
+                          class="btn-gradient-bg btn-gradient-bg-hover bg-gradient-primary-lr"
+                        ></span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          xml:space="preserve"
+                          class="btn-gradient-border"
+                          width="100%"
+                          height="100%"
+                        >
+                          <defs>
+                            <linearGradient
+                              id="btn-grad-1"
+                              x1="0%"
+                              y1="0%"
+                              x2="100%"
+                              y2="0%"
+                            >
+                              <stop offset="0%" />
+                              <stop offset="100%" />
+                            </linearGradient>
+                          </defs>
+                          <rect
+                            x="0"
+                            y="0"
+                            rx="0"
+                            ry="0"
+                            width="100%"
+                            height="100%"
+                            stroke="url(#btn-grad-1)"
+                          />
+                        </svg>
+                      </span>
+                    </a>
+                  </div>
+                  <!-- /.pricing-table-footer -->
+                </div>
+                <!-- /.pricing-table -->
+              </div>
+              <!-- /.col-lg-4 col-md-12 -->
+            </div>
+            <!-- /.row -->
+            <h3>Preferred Vendors</h3>
+
+            <p>
+              We are currenty seeking area vendors for our Preferred Vendors
+              list. Please <a href="#contact">contact us</a>, or call Will
+              Brattain at <a href="tel://+19722004488">(972) 200-4488</a> for
+              more information.
+            </p>
+            <footer class="blog-single-footer entry-footer"></footer>
+            <!-- /.blog-single-footer entry-footer -->
+          </div>
+          <!-- /.col-md-8 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+      <!-- prettier-ignore -->
+    </div>
+  </article>
+  <!-- /.blog-single -->
+</main>
+<!-- /#content.content -->
+{% endblock %}

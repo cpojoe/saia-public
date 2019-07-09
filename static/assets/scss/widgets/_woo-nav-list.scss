@@ -1,0 +1,21 @@
+.woocommerce {
+
+	.woocommerce-widget-layered-nav-list {
+		font-size: 15px;
+		font-weight: 600;
+
+		.woocommerce-widget-layered-nav-list__item {
+
+			&:before {
+				content: '\f105';
+				display: inline-block;
+				margin-right: 12px;
+				font: normal normal 16px/1 fontAwesome;
+			}
+			span {
+				float: right;
+				color: rgba(#000, 0.27);
+			}
+		}
+	}
+}

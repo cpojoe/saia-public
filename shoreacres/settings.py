@@ -26,7 +26,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '%3wo*w9*nbe6e9_m04#-au#kpe=(_vv*k_b@^t^$&w%@4v=ry1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['shoreacresmd.org', 'www.shoreacresmd.org',
                  '159.203.78.155', '174.138.60.190', '192.168.1.153', '127.0.0.1', ]

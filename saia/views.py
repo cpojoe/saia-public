@@ -8,7 +8,7 @@ def index(request):
     title = 'Welcome'
     ns = News.objects.all().order_by('-id')[:4]
     time_thresh = timezone.now() - datetime.timedelta(hours=4)
-    events = Events.objects.all().order_by('date')[:4]
+    events = Events.objects.all().filter(date__gt=time_thresh).order_by('date')[:4]
     context = {
         'page_title': title,
         'news': ns,
